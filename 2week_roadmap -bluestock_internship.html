@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-background-page: #f1f5f9;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f8fafc;
+  --color-background-success: #dcfce7;
+  
+  --color-border-primary: #e2e8f0;
+  --color-border-secondary: #cbd5e1;
+  --color-border-tertiary: #f1f5f9;
+  --color-border-success: #22c55e;
+  
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748b;
+  --color-text-info: #3b82f6;
+  --color-text-success: #15803d;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { 
+  font-family: var(--font-sans); 
+  background-color: var(--color-background-page);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  padding: 2rem 1rem;
+}
+
+.wrap { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  background: var(--color-background-primary); 
+  padding: 2.5rem; 
+  border-radius: var(--radius-lg); 
+  box-shadow: var(--shadow-md);
+}
+
+h1 { 
+  font-size: 26px; 
+  font-weight: 600; 
+  letter-spacing: -0.02em; 
+  color: var(--color-text-primary); 
+  margin-bottom: 6px; 
+}
+
+.sub { 
+  font-size: 14px; 
+  color: var(--color-text-secondary); 
+  margin-bottom: 2rem; 
+  font-weight: 400;
+}
+
+.tabs { 
+  display: flex; 
+  gap: 8px; 
+  flex-wrap: wrap; 
+  margin-bottom: 2rem; 
+  background: var(--color-background-secondary);
+  padding: 6px;
+  border-radius: 100px;
+  border: 1px solid var(--color-border-primary);
+}
+
+.tab { 
+  padding: 8px 18px; 
+  border-radius: 100px; 
+  border: none; 
+  font-size: 13px; 
+  font-weight: 500;
+  cursor: pointer; 
+  background: transparent; 
+  color: var(--color-text-secondary); 
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--color-text-primary);
+}
+
+.tab.active { 
+  background: var(--color-text-primary); 
+  color: var(--color-background-primary); 
+  box-shadow: var(--shadow-sm); 
+}
+
+.section { display: none; animation: fadeIn 0.3s ease-in-out; }
+.section.show { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.week-label { 
+  font-size: 12px; 
+  font-weight: 600; 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase; 
+  color: var(--color-text-tertiary); 
+  margin-bottom: 1rem; 
+  margin-top: 1.5rem;
+}
+.week-label:first-child { margin-top: 0; }
+
+.day-card { 
+  background: var(--color-background-primary); 
+  border: 1px solid var(--color-border-primary); 
+  border-radius: var(--radius-md); 
+  margin-bottom: 1.25rem; 
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.day-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  border-color: var(--color-border-secondary);
+}
+
+.day-header { 
+  padding: 1rem 1.25rem; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  cursor: pointer; 
+  user-select: none; 
+}
+
+.day-badge { 
+  width: 40px; 
+  height: 40px; 
+  border-radius: 10px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 13px; 
+  font-weight: 600; 
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.day-title { flex: 1; }
+.day-title p { font-size: 15px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 2px;}
+.day-title span { font-size: 13px; color: var(--color-text-secondary); }
+
+.chevron { font-size: 16px; color: var(--color-text-tertiary); transition: transform 0.3s ease; }
+.chevron.open { transform: rotate(180deg); color: var(--color-text-primary); }
+
+.day-body { padding: 0 1.25rem 1.25rem; display: none; }
+.day-body.open { display: block; animation: fadeIn 0.3s ease; }
+
+.task-row { 
+  display: flex; 
+  gap: 12px; 
+  align-items: flex-start; 
+  padding: 10px 0; 
+  border-bottom: 1px solid var(--color-border-tertiary); 
+}
+.task-row:last-child { border-bottom: none; padding-bottom: 0; }
+.task-icon { font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+.task-text { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+.task-text strong { color: var(--color-text-primary); font-weight: 600; }
+.task-text em { font-style: normal; color: var(--color-text-tertiary); font-size: 12.5px; display: block; margin-top: 4px;}
+
+.tag { 
+  display: inline-block; 
+  font-size: 11px; 
+  padding: 4px 10px; 
+  border-radius: 20px; 
+  margin-right: 4px; 
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+/* topic table */
+.tbl-wrap { 
+  overflow-x: auto; 
+  margin-bottom: 2rem; 
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+}
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { 
+  text-align: left; 
+  padding: 12px 16px; 
+  font-size: 12px; 
+  font-weight: 600; 
+  letter-spacing: 0.05em; 
+  text-transform: uppercase; 
+  color: var(--color-text-tertiary); 
+  border-bottom: 1px solid var(--color-border-primary); 
+  background: var(--color-background-secondary);
+  white-space: nowrap; 
+}
+td { 
+  padding: 12px 16px; 
+  border-bottom: 1px solid var(--color-border-tertiary); 
+  vertical-align: top; 
+  line-height: 1.6; 
+  color: var(--color-text-secondary);
+}
+td:first-child { font-weight: 500; color: var(--color-text-primary); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--color-background-secondary); }
+td a { color: var(--color-text-info); text-decoration: none; font-weight: 500; }
+td a:hover { text-decoration: underline; }
+
+/* checklist */
+.checklist { list-style: none; background: var(--color-background-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-primary); }
+.checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; border-bottom: 1px dashed var(--color-border-secondary); font-size: 14px; line-height: 1.5; }
+.checklist li:last-child { border-bottom: none; }
+.check-box { 
+  width: 18px; 
+  height: 18px; 
+  background: var(--color-background-primary);
+  border: 2px solid var(--color-border-secondary); 
+  border-radius: 4px; 
+  flex-shrink: 0; 
+  margin-top: 2px; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 12px; 
+  font-weight: bold;
+  transition: all 0.2s; 
+}
+.check-box:hover { border-color: var(--color-text-primary); }
+.check-box.done { background: var(--color-border-success); border-color: var(--color-border-success); color: var(--color-background-primary); }
+.check-text { color: var(--color-text-primary); transition: color 0.2s; }
+.check-text.done { text-decoration: line-through; color: var(--color-text-tertiary); }
+
+/* timeline strip */
+.timeline { 
+  display: flex; 
+  gap: 0; 
+  margin-bottom: 2rem; 
+  border-radius: var(--radius-md); 
+  overflow: hidden; 
+  border: 1px solid var(--color-border-primary);
+  box-shadow: var(--shadow-sm);
+}
+.tl-seg { 
+  flex: 1; 
+  padding: 12px 8px; 
+  text-align: center; 
+  font-size: 12px; 
+  font-weight: 600; 
+  color: var(--color-text-primary); 
+  border-right: 1px solid rgba(0,0,0,0.05); 
+  cursor: pointer; 
+  transition: opacity 0.2s; 
+}
+.tl-seg:last-child { border-right: none; }
+.tl-seg:hover { opacity: 0.85; }
+.tl-seg span { display: block; font-size: 11px; font-weight: 500; opacity: 0.8; margin-top: 4px; }
+
+/* progress bar */
+.prog-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+.prog-bar { flex: 1; height: 8px; background: var(--color-border-primary); border-radius: 10px; overflow: hidden; }
+.prog-fill { height: 100%; border-radius: 10px; transition: width 0.4s ease-out; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Bluestock Fintech — 2-Week Internship Roadmap</h1>
+<p class="sub">Data Analyst Intern · May 28 – June 10, 2026 · Remote · Prerequisite due: June 10</p>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('overview')">Overview</button>
+  <button class="tab" onclick="showTab('week1')">Week 1 — Daily Plan</button>
+  <button class="tab" onclick="showTab('week2')">Week 2 — Test & Submit</button>
+  <button class="tab" onclick="showTab('topics')">All Topics & Resources</button>
+  <button class="tab" onclick="showTab('checklist')">Pre-Test Checklist</button>
+</div>
+
+<div id="sec-overview" class="section show">
+  <div class="week-label">Program at a glance</div>
+  <div class="timeline">
+    <div class="tl-seg" style="background:#EAF3DE" onclick="showTab('week1')">Day 1–2<span>Orientation + Python</span></div>
+    <div class="tl-seg" style="background:#C0DD97" onclick="showTab('week1')">Day 3–5<span>SQL + Capstone</span></div>
+    <div class="tl-seg" style="background:#378ADD;color:#fff" onclick="showTab('week2')">Day 6–7<span>Prerequisite Test</span></div>
+    <div class="tl-seg" style="background:#185FA5;color:#fff" onclick="showTab('week2')">Day 8–10<span>Capstone Submit</span></div>
+    <div class="tl-seg" style="background:#EF9F27" >Day 11+<span>Projects Assigned</span></div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Phase</th><th>Days</th><th>Activity</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag" style="background:#EAF3DE;color:#3B6D11">Week 1 — Part A</span></td><td>1–2</td><td>Orientation · Python · NumPy · Pandas · Environment setup</td><td>Learning initiated</td></tr>
+        <tr><td><span class="tag" style="background:#C0DD97;color:#27500A">Week 1 — Part B</span></td><td>3–5</td><td>SQL · PostgreSQL · Flask · Visualisation · Capstone assigned</td><td>Capstone started</td></tr>
+        <tr><td><span class="tag" style="background:#B5D4F4;color:#0C447C">Week 2 — Test</span></td><td>6–7</td><td>Online Prerequisite Test (MCQ + SQL + code + Fintech)</td><td>Test evaluated</td></tr>
+        <tr><td><span class="tag" style="background:#B5D4F4;color:#0C447C">Week 2 — Submit</span></td><td>8–10</td><td>Capstone project submission + GitHub + Flask API</td><td>Project submitted</td></tr>
+        <tr><td><span class="tag" style="background:#FAC775;color:#633806">Post-Week 2</span></td><td>11+</td><td>Mentor review → ongoing company project assigned</td><td>Project assigned</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="week-label">Performance bands</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:2rem">
+    <div style="background:#f4fbf0;border:1px solid #d1eabf;border-radius:12px;padding:12px 16px">
+      <div style="font-size:13px;font-weight:600;color:#3B6D11">Outstanding — 90%+</div>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-top:4px">Lead Analytics on Live Fintech Product</div>
+    </div>
+    <div style="background:#f0f7ff;border:1px solid #cce3ff;border-radius:12px;padding:12px 16px">
+      <div style="font-size:13px;font-weight:600;color:#0C447C">Excellent — 75–90%</div>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-top:4px">Core Data Pipeline / Dashboarding</div>
+    </div>
+    <div style="background:#fffaf0;border:1px solid #ffecb3;border-radius:12px;padding:12px 16px">
+      <div style="font-size:13px;font-weight:600;color:#8d5500">Good — 60–75%</div>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-top:4px">Supporting role in Analytics Project</div>
+    </div>
+    <div style="background:#fff0f0;border:1px solid #ffcaca;border-radius:12px;padding:12px 16px">
+      <div style="font-size:13px;font-weight:600;color:#A32D2D">Below 60%</div>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-top:4px">Extended learning + re-evaluation</div>
+    </div>
+  </div>
+
+  <div class="week-label">Test weightage</div>
+  <div style="background:var(--color-background-secondary); border: 1px solid var(--color-border-primary); border-radius: var(--radius-md); padding: 1.5rem;">
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px"><span>Python & Libraries (NumPy, Pandas, Matplotlib, Flask, OOP)</span><span>30%</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:30%;background:#3b82f6"></div></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px"><span>SQL & PostgreSQL (Queries, Joins, Window Functions, pgAdmin)</span><span>25%</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:25%;background:#10b981"></div></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px"><span>Data Analysis & EDA (Statistics, cleaning, visualisation)</span><span>20%</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:20%;background:#f59e0b"></div></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px"><span>Fintech Domain (Stock market, MF, SEBI, financial ratios)</span><span>15%</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:15%;background:#ef4444"></div></div>
+    </div>
+    <div style="margin-bottom:0">
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px"><span>ML & Tools (sklearn basics, Git, Jupyter, Colab)</span><span>10%</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:10%;background:#8b5cf6"></div></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-week1" class="section">
+  <div class="week-label">Week 1 — Daily learning plan (Day 1 – Day 5)</div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d1')">
+      <div class="day-badge" style="background:#EAF3DE;color:#3B6D11">D1</div>
+      <div class="day-title"><p>Orientation & Python Foundation</p><span>Environment setup · Python basics · OOP · Target: CSV stats script</span></div>
+      <div class="chevron" id="chev-d1">▼</div>
+    </div>
+    <div class="day-body" id="body-d1">
+      <div class="task-row"><span class="task-icon">🕘</span><span class="task-text"><strong>Morning (9 AM – 11 AM)</strong> — Log into workspace & mark Attendance. Read the full Prerequisite Guide PDF.</span></div>
+      <div class="task-row"><span class="task-icon">🔧</span><span class="task-text"><strong>Setup (11 AM – 12 PM)</strong> — Install <code>pgAdmin 4</code> (you already have VS Code + Jupyter). Create a fresh GitHub repo: <code>bluestock-internship</code>. Activate Google Colab account.<br><em>Resource: youtube.com/@TraversyMedia → PostgreSQL Crash Course</em></span></div>
+      <div class="task-row"><span class="task-icon">🐍</span><span class="task-text"><strong>Python Revision (1 PM – 4 PM)</strong> — Variables, data types, lists, dicts, loops, functions, file I/O, error handling. Then OOP: classes, objects, inheritance, dunder methods.<br><em>Resource: youtube.com/@coreyms (Corey Schafer Python series) · docs.python.org</em></span></div>
+      <div class="task-row"><span class="task-icon">🎯</span><span class="task-text"><strong>Target Task (4 PM – 6 PM)</strong> — Write a Python script (no Pandas) that reads a financial CSV from Kaggle and prints: row count, column names, min/max/mean of numeric columns.<br><em>Dataset: Kaggle → "Nifty 50 Stock Market Data" or any financial CSV</em></span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Standup (6 PM)</strong> — Log in workspace: "Completed Python/OOP revision, pgAdmin setup, wrote CSV stats script."</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d2')">
+      <div class="day-badge" style="background:#EAF3DE;color:#3B6D11">D2</div>
+      <div class="day-title"><p>NumPy, Pandas & Data Cleaning</p><span>Arrays · DataFrames · EDA · Target: Complete 1 EDA notebook on financial data</span></div>
+      <div class="chevron" id="chev-d2">▼</div>
+    </div>
+    <div class="day-body" id="body-d2">
+      <div class="task-row"><span class="task-icon">🕘</span><span class="task-text"><strong>Morning (9 AM – 9:15 AM)</strong> — Mark Attendance.</span></div>
+      <div class="task-row"><span class="task-icon">📐</span><span class="task-text"><strong>NumPy (9:15 AM – 11 AM)</strong> — Arrays, operations, indexing, slicing, broadcasting, random, reshaping, math operations.<br><em>Resource: youtube.com/@KeithGalli · numpy.org/doc</em></span></div>
+      <div class="task-row"><span class="task-icon">🐼</span><span class="task-text"><strong>Pandas (11 AM – 2 PM)</strong> — DataFrame, Series, read_csv, head/tail, info, describe. Then: loc/iloc, filtering, groupby, merge/join, pivot, apply, fillna, dropna.<br><em>Resource: Corey Schafer Pandas Series · pandas.pydata.org</em></span></div>
+      <div class="task-row"><span class="task-icon">🧹</span><span class="task-text"><strong>Data Cleaning practice (2 PM – 4 PM)</strong> — Download a Kaggle financial dataset. Handle: missing values, duplicate rows, type conversion, outlier detection, column renaming.<br><em>Resource: youtube.com/@KeithGalli · kaggle.com/learn (Pandas course, free cert)</em></span></div>
+      <div class="task-row"><span class="task-icon">🎯</span><span class="task-text"><strong>Target Task (4 PM – 6 PM)</strong> — Complete a full EDA Jupyter Notebook: shape, describe, missing %, correlation heatmap, distribution plots, top/bottom 5 rows. Commit to GitHub.<br><em>Platform: Jupyter Notebook or Google Colab</em></span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Standup (6 PM)</strong> — "Completed NumPy + Pandas revision, finished EDA notebook on [dataset name], pushed to GitHub."</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d3')">
+      <div class="day-badge" style="background:#C0DD97;color:#27500A">D3</div>
+      <div class="day-title"><p>SQL + PostgreSQL + Capstone Assigned ⚡</p><span>SQL fundamentals · pgAdmin · CTEs · Window functions · Capstone planning starts today</span></div>
+      <div class="chevron" id="chev-d3">▼</div>
+    </div>
+    <div class="day-body" id="body-d3">
+      <div class="task-row"><span class="task-icon">🕘</span><span class="task-text"><strong>Morning (9 AM – 9:15 AM)</strong> — Mark Attendance. Check workspace for Capstone project assignment notification.</span></div>
+      <div class="task-row"><span class="task-icon">🗄️</span><span class="task-text"><strong>SQL Basics (9:15 AM – 12 PM)</strong> — SELECT, WHERE, ORDER BY, GROUP BY, HAVING, LIMIT, DISTINCT, aliases. Then: INNER/LEFT/RIGHT/FULL JOINs, subqueries, CTEs (WITH clause).<br><em>Resource: youtube.com/@freecodecamp (SQL Full Course) · w3schools.com/sql · postgresqltutorial.com</em></span></div>
+      <div class="task-row"><span class="task-icon">🐘</span><span class="task-text"><strong>PostgreSQL Setup (12 PM – 2 PM)</strong> — Open pgAdmin 4. Create a new database, import a financial CSV. Run basic queries. Explore SERIAL, JSONB, indexes, psycopg2 basics.<br><em>Resource: youtube.com/@TraversyMedia PostgreSQL · postgresql.org/docs</em></span></div>
+      <div class="task-row"><span class="task-icon">🪟</span><span class="task-text"><strong>Advanced SQL (2 PM – 4 PM)</strong> — Window functions: ROW_NUMBER, RANK, LAG, LEAD, PARTITION BY. Data cleaning in SQL: CAST, COALESCE, NULLIF, CASE WHEN, string + date functions.<br><em>Resource: youtube.com/@AlexTheAnalyst · mode.com/sql-tutorial</em></span></div>
+      <div class="task-row"><span class="task-icon">🎯</span><span class="task-text"><strong>Target + Capstone (4 PM – 6 PM)</strong> — Run 10+ SQL queries on financial data in PostgreSQL. Plan capstone: set up Google Drive folder structure (Source Code / Datasets / Documentation / PPT / Demo Video). Start README.<br><em>Important: Capstone is assigned today — start immediately!</em></span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Standup (6 PM)</strong> — "Completed SQL + PostgreSQL setup. Ran 10 queries. Capstone received and folder structure created."</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d4')">
+      <div class="day-badge" style="background:#C0DD97;color:#27500A">D4</div>
+      <div class="day-title"><p>Visualisation + Flask + Capstone Work</p><span>5+ chart types · REST API · psycopg2 · First capstone insights</span></div>
+      <div class="chevron" id="chev-d4">▼</div>
+    </div>
+    <div class="day-body" id="body-d4">
+      <div class="task-row"><span class="task-icon">🕘</span><span class="task-text"><strong>Morning (9 AM – 9:15 AM)</strong> — Mark Attendance.</span></div>
+      <div class="task-row"><span class="task-icon">📊</span><span class="task-text"><strong>Matplotlib & Seaborn (9:15 AM – 11:30 AM)</strong> — Line, bar, scatter, histogram, boxplot, heatmap. Styling, subplots, sns themes, annotations, choosing the right chart for financial data.<br><em>Resource: youtube.com/@sentdex · matplotlib.org · seaborn.pydata.org</em></span></div>
+      <div class="task-row"><span class="task-icon">🌐</span><span class="task-text"><strong>Flask (11:30 AM – 2 PM)</strong> — Routes, request/response, Jinja2 templates, JSON endpoints. Build a REST API with 2–3 endpoints. Connect to PostgreSQL using psycopg2, return JSON.<br><em>Resource: youtube.com/@TraversyMedia Flask · youtube.com/@TechWithTim · flask.palletsprojects.com</em></span></div>
+      <div class="task-row"><span class="task-icon">🎯</span><span class="task-text"><strong>Capstone Work (2 PM – 6 PM)</strong> — Write project folder structure. Start EDA on capstone dataset. Produce first 3 charts. Begin data cleaning pipeline. Target: Flask app running + first capstone insights committed.<br><em>Platform: VS Code + Jupyter + pgAdmin + Postman for API testing</em></span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Standup (6 PM)</strong> — "Completed Matplotlib/Seaborn + Flask API with PostgreSQL. Capstone EDA started, first insights ready."</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d5')">
+      <div class="day-badge" style="background:#C0DD97;color:#27500A">D5</div>
+      <div class="day-title"><p>Fintech Domain + ML Basics + Capstone 50%</p><span>Stock market · Mutual funds · yfinance · Linear regression · Capstone 50%+ complete</span></div>
+      <div class="chevron" id="chev-d5">▼</div>
+    </div>
+    <div class="day-body" id="body-d5">
+      <div class="task-row"><span class="task-icon">🕘</span><span class="task-text"><strong>Morning (9 AM – 9:15 AM)</strong> — Mark Attendance.</span></div>
+      <div class="task-row"><span class="task-icon">📈</span><span class="task-text"><strong>Stock Market (9:15 AM – 11 AM)</strong> — What is a stock, equity, NSE/BSE, IPO. OHLC data, market cap, trading volume, bid-ask spread. NIFTY 50, SENSEX. P/E, EPS, P/B, balance sheet basics. Fetch OHLC data using yfinance in Python.<br><em>Resource: youtube.com/@CARachanaRanade · zerodha.com/varsity · pypi.org/project/yfinance</em></span></div>
+      <div class="task-row"><span class="task-icon">💰</span><span class="task-text"><strong>Mutual Funds (11 AM – 12:30 PM)</strong> — NAV, AUM, AMC, expense ratio, exit load. Types: equity/debt/hybrid/ELSS/index. CAGR, XIRR, Sharpe ratio, alpha/beta. SIP vs lump sum. Calculate CAGR in Pandas.<br><em>Resource: youtube.com/@CARachanaRanade MF Series · amfiindia.com · zerodha.com/varsity</em></span></div>
+      <div class="task-row"><span class="task-icon">🤖</span><span class="task-text"><strong>ML Basics (12:30 PM – 2 PM)</strong> — Supervised vs unsupervised. Linear regression: R², RMSE, MAE. Logistic regression, confusion matrix, precision/recall/F1. sklearn: fit(), predict(), train_test_split, pipeline.<br><em>Resource: youtube.com/@statquest · youtube.com/@KrishNaik · kaggle.com/learn</em></span></div>
+      <div class="task-row"><span class="task-icon">🎯</span><span class="task-text"><strong>Capstone (2 PM – 6 PM)</strong> — Complete data analysis section of capstone. Begin modelling (linear regression on financial dataset). Push all work to GitHub. Target: Capstone 50%+ complete.<br><em>Goal: Fintech domain notes ready + capstone halfway done</em></span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Standup (6 PM)</strong> — "Completed Fintech domain learning (stocks + MF + ML basics). Capstone analysis section done — 50%+ complete."</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-week2" class="section">
+  <div class="week-label">Week 2 — Test & Capstone Submission (Day 6 – Day 10)</div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d6')">
+      <div class="day-badge" style="background:#B5D4F4;color:#0C447C">D6</div>
+      <div class="day-title"><p>Final Revision + Test Prep</p><span>Revise all topics · Practice SQL queries · Mock test yourself</span></div>
+      <div class="chevron" id="chev-d6">▼</div>
+    </div>
+    <div class="day-body" id="body-d6">
+      <div class="task-row"><span class="task-icon">🔁</span><span class="task-text"><strong>Python Revision (9 AM – 11 AM)</strong> — OOP, list comprehensions, lambda/map/filter, error handling, file I/O. Run through Pandas operations quickly: groupby, merge, pivot.</span></div>
+      <div class="task-row"><span class="task-icon">🗄️</span><span class="task-text"><strong>SQL Practice (11 AM – 1 PM)</strong> — Write 5+ business queries with JOINs, CTEs, Window Functions in pgAdmin on your existing DB. Focus on RANK, LAG, LEAD, PARTITION BY.</span></div>
+      <div class="task-row"><span class="task-icon">📈</span><span class="task-text"><strong>Fintech Rapid Review (1 PM – 2:30 PM)</strong> — Read your notes on OHLC, CAGR, NAV, SIP, SEBI/RBI/AMFI roles. Scan zerodha.com/varsity TA module (candlesticks, RSI, MACD basics).</span></div>
+      <div class="task-row"><span class="task-icon">🧪</span><span class="task-text"><strong>Self-Mock Test (2:30 PM – 4 PM)</strong> — Do Kaggle's Python, Pandas, SQL micro-courses quiz sections. Try HackerRank SQL challenges (Easy/Medium). Review sklearn model eval metrics.</span></div>
+      <div class="task-row"><span class="task-icon">🔨</span><span class="task-text"><strong>Capstone Progress (4 PM – 6 PM)</strong> — Complete SQL section (5+ business queries). Ensure Flask API has minimum 2 working endpoints returning JSON. Commit to GitHub.</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d7')">
+      <div class="day-badge" style="background:#B5D4F4;color:#0C447C">D7</div>
+      <div class="day-title"><p>Prerequisite Test Day</p><span>Online test — MCQ + SQL + code outputs + Fintech concepts</span></div>
+      <div class="chevron" id="chev-d7">▼</div>
+    </div>
+    <div class="day-body" id="body-d7">
+      <div class="task-row"><span class="task-icon">⚡</span><span class="task-text"><strong>Quick final review (9 AM – 10 AM)</strong> — Scan the Pre-Test Checklist tab. Re-read key concepts: CAGR formula, PARTITION BY syntax, Flask routing, confusion matrix terms.</span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Attend Test (as scheduled by company)</strong> — Format: MCQs, short code outputs, SQL queries, Fintech concept questions. 30% Python · 25% SQL · 20% EDA · 15% Fintech · 10% ML+Tools.</span></div>
+      <div class="task-row"><span class="task-icon">🔨</span><span class="task-text"><strong>After test — Capstone (post-test – 6 PM)</strong> — Write final report narrative in Jupyter Notebook. Finalise all charts with proper titles and labels. Begin PPT/Slides.</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d8')">
+      <div class="day-badge" style="background:#185FA5;color:#fff">D8</div>
+      <div class="day-title"><p>Capstone — Final Polishing</p><span>EDA complete · Flask API finalised · Report narrative · GitHub clean-up</span></div>
+      <div class="chevron" id="chev-d8">▼</div>
+    </div>
+    <div class="day-body" id="body-d8">
+      <div class="task-row"><span class="task-icon">📊</span><span class="task-text"><strong>EDA finalisation</strong> — At least 5 meaningful visualisations with storytelling annotations. Include trends, correlations, anomaly detection. All charts titled and labelled.</span></div>
+      <div class="task-row"><span class="task-icon">🌐</span><span class="task-text"><strong>Flask API</strong> — Minimum 2 endpoints returning JSON insights from your dataset. Test with Postman. Ensure psycopg2 connection is stable.</span></div>
+      <div class="task-row"><span class="task-icon">📁</span><span class="task-text"><strong>Google Drive structure</strong> — Main folder (your name) → Source Code / Datasets / Documentation / PPT-Slides / Demo Video. Set sharing to "Anyone with link — Viewer".</span></div>
+      <div class="task-row"><span class="task-icon">🐙</span><span class="task-text"><strong>GitHub</strong> — Clean commit history. Complete README with: project description, setup steps, how to run Flask API, dependencies. Add requirements.txt.</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d9')">
+      <div class="day-badge" style="background:#185FA5;color:#fff">D9</div>
+      <div class="day-title"><p>ML Model (Bonus) + PPT + Demo Video</p><span>Optional regression/classification · Slides · Screen recording</span></div>
+      <div class="chevron" id="chev-d9">▼</div>
+    </div>
+    <div class="day-body" id="body-d9">
+      <div class="task-row"><span class="task-icon">🤖</span><span class="task-text"><strong>Optional ML Model</strong> — Linear regression or classification on your financial dataset. Show model evaluation: R², RMSE or confusion matrix, precision/recall. Add to Jupyter Notebook as a bonus section.</span></div>
+      <div class="task-row"><span class="task-icon">📑</span><span class="task-text"><strong>PPT / Slides</strong> — 6–8 slides: Problem statement → Dataset overview → EDA insights → SQL findings → Flask API demo → Conclusions. Export as PDF into Google Drive / PPT-Slides folder.</span></div>
+      <div class="task-row"><span class="task-icon">🎥</span><span class="task-text"><strong>Demo Video (3–5 min)</strong> — Screen record: show Jupyter notebook running, Flask API responding in Postman or browser, key charts. Upload to Google Drive / Demo Video folder.</span></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('d10')">
+      <div class="day-badge" style="background:#185FA5;color:#fff">D10</div>
+      <div class="day-title"><p>Submission Day 🏁</p><span>Final checks · Submit Google Drive link in workspace · Standup update</span></div>
+      <div class="chevron" id="chev-d10">▼</div>
+    </div>
+    <div class="day-body" id="body-d10">
+      <div class="task-row"><span class="task-icon">✅</span><span class="task-text"><strong>Final submission checklist</strong> — EDA notebook ✓ · Data cleaning pipeline ✓ · 5+ SQL queries ✓ · Flask API (2+ endpoints) ✓ · Final report (PDF/Notebook) ✓ · GitHub repo with README + requirements.txt ✓</span></div>
+      <div class="task-row"><span class="task-icon">🔗</span><span class="task-text"><strong>Submit</strong> — Go to workspace → Submission menu → Paste Google Drive folder link (Anyone with link - Viewer) → Submit before deadline (end of Day 10).</span></div>
+      <div class="task-row"><span class="task-icon">📝</span><span class="task-text"><strong>Final Standup</strong> — "Capstone project submitted via Google Drive. All deliverables complete: EDA, Flask API, SQL queries, report, demo video, GitHub repo."</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-topics" class="section">
+  <div class="week-label">A. Python Programming</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Topic</th><th>Key Concepts</th><th>Where to Learn</th><th>URLs</th></tr></thead>
+    <tbody>
+      <tr><td>Python Basics</td><td>Variables, data types, loops, functions, OOP, file I/O, error handling, modules</td><td>Corey Schafer (YouTube) · docs.python.org</td><td><a href="https://docs.python.org" target="_blank">docs.python.org</a></td></tr>
+      <tr><td>NumPy</td><td>Arrays, indexing, slicing, broadcasting, math ops, random, reshaping</td><td>Keith Galli (YouTube) · numpy.org/doc</td><td><a href="https://numpy.org/doc" target="_blank">numpy.org/doc</a></td></tr>
+      <tr><td>Pandas</td><td>DataFrame, Series, read_csv, groupby, merge/join, pivot, apply, loc/iloc, fillna</td><td>Corey Schafer Pandas Series</td><td><a href="https://pandas.pydata.org" target="_blank">pandas.pydata.org</a></td></tr>
+      <tr><td>Matplotlib & Seaborn</td><td>Line/bar/scatter/heatmap, styling, subplots, sns themes</td><td>sentdex · Kite · matplotlib.org</td><td><a href="https://matplotlib.org" target="_blank">matplotlib.org</a></td></tr>
+      <tr><td>Flask</td><td>Routes, request/response, Jinja2, REST APIs, JSON endpoints, forms</td><td>Traversy Media · Tech With Tim</td><td><a href="https://flask.palletsprojects.com" target="_blank">flask.palletsprojects.com</a></td></tr>
+      <tr><td>Jupyter Notebook</td><td>Cells, markdown, magic commands, exporting, widgets</td><td>Corey Schafer</td><td><a href="https://jupyter.org" target="_blank">jupyter.org</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="week-label">B. SQL & PostgreSQL</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Topic</th><th>Key Concepts</th><th>Where to Learn</th><th>URLs</th></tr></thead>
+    <tbody>
+      <tr><td>SQL Fundamentals</td><td>SELECT, WHERE, ORDER BY, GROUP BY, HAVING, LIMIT, DISTINCT, aliases</td><td>freeCodeCamp SQL Full Course</td><td><a href="https://w3schools.com/sql" target="_blank">w3schools.com/sql</a></td></tr>
+      <tr><td>Joins & Subqueries</td><td>INNER, LEFT, RIGHT, FULL JOIN, subqueries, CTEs (WITH clause)</td><td>Socratica · Alex the Analyst</td><td><a href="https://postgresqltutorial.com" target="_blank">postgresqltutorial.com</a></td></tr>
+      <tr><td>Window Functions</td><td>COUNT, SUM, AVG, MIN, MAX, ROW_NUMBER, RANK, LAG, LEAD, PARTITION BY</td><td>Alex the Analyst</td><td><a href="https://mode.com/sql-tutorial" target="_blank">mode.com/sql-tutorial</a></td></tr>
+      <tr><td>PostgreSQL Specific</td><td>pgAdmin setup, psycopg2 (Python connection), SERIAL, JSONB, indexes</td><td>Traversy Media PostgreSQL</td><td><a href="https://postgresql.org/docs" target="_blank">postgresql.org/docs</a></td></tr>
+      <tr><td>Data Cleaning in SQL</td><td>CAST, COALESCE, NULLIF, string functions, date functions, CASE WHEN</td><td>Data with Mo</td><td><a href="https://kaggle.com/learn/advanced-sql" target="_blank">kaggle.com/learn/advanced-sql</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="week-label">C. EDA & Data Analysis</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Topic</th><th>Key Concepts</th><th>Where to Learn</th><th>URLs</th></tr></thead>
+    <tbody>
+      <tr><td>EDA Process</td><td>Data shape, distributions, missing values, outliers, correlations</td><td>Ken Jee · Rob Mulla</td><td><a href="https://kaggle.com/learn" target="_blank">kaggle.com/learn</a></td></tr>
+      <tr><td>Statistics</td><td>Mean, median, mode, std dev, variance, percentiles, Z-score, distributions</td><td>StatQuest (Josh Starmer)</td><td><a href="https://youtube.com/@statquest" target="_blank">youtube.com/@statquest</a></td></tr>
+      <tr><td>Feature Engineering</td><td>New features, binning, encoding categorical, normalization</td><td>Krish Naik</td><td><a href="https://scikit-learn.org/stable/user_guide.html" target="_blank">scikit-learn.org</a></td></tr>
+      <tr><td>Visualisation for Insights</td><td>Right chart type, storytelling with data, dashboards, annotations</td><td>Data Professor</td><td><a href="https://youtube.com/@DataProfessor" target="_blank">youtube.com</a></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div id="sec-checklist" class="section">
+  <div class="week-label">Pre-Test Checklist — tick off as you complete each item</div>
+
+  <div style="margin-bottom:1.5rem">
+    <div style="font-size:15px;font-weight:600;color:var(--color-text-primary);margin-bottom:12px">Python</div>
+    <ul class="checklist" id="cl-python">
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Variables, loops, functions, OOP (classes, objects, inheritance)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">NumPy arrays + operations (broadcasting, reshaping, indexing)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Pandas: read_csv, clean, groupby, merge, loc/iloc, fillna</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Matplotlib/Seaborn: 5+ chart types with financial data</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Flask REST API with JSON responses (2+ endpoints)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Flask connected to PostgreSQL using psycopg2</span></li>
+    </ul>
+  </div>
+
+  <div style="margin-bottom:1.5rem">
+    <div style="font-size:15px;font-weight:600;color:var(--color-text-primary);margin-bottom:12px">SQL</div>
+    <ul class="checklist" id="cl-sql">
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">SELECT, WHERE, GROUP BY, HAVING, ORDER BY, DISTINCT</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">INNER, LEFT, RIGHT JOINs + subqueries + CTEs (WITH clause)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Window functions: RANK, ROW_NUMBER, LAG, LEAD, PARTITION BY</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">PostgreSQL setup in pgAdmin + psycopg2 Python connection</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">5+ real business queries written and run on financial data</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">CAST, COALESCE, NULLIF, CASE WHEN, date functions used</span></li>
+    </ul>
+  </div>
+
+  <div style="margin-bottom:1.5rem">
+    <div style="font-size:15px;font-weight:600;color:var(--color-text-primary);margin-bottom:12px">Capstone submission</div>
+    <ul class="checklist" id="cl-capstone">
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">EDA with 5+ visualisations + narrative completed</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Data cleaning pipeline using Pandas done</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">5+ SQL business queries written in PostgreSQL</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Flask API with 2+ endpoints returning JSON insights live</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Final report (PDF or Jupyter Notebook with charts + findings)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">GitHub repo: clean commits + README + requirements.txt</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Google Drive folder shared (Anyone with link - Viewer)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-text">Submitted via workspace Submission menu before deadline</span></li>
+    </ul>
+  </div>
+
+  <div id="check-score" style="margin-top:2rem;padding:16px 20px;background:var(--color-background-secondary);border:1px solid var(--color-border-primary);border-radius:var(--radius-md);font-size:14px;color:var(--color-text-primary);font-weight:500">
+    Progress: <strong id="check-count" style="color:var(--color-text-info)">0 / 20</strong> items completed
+    <div class="prog-bar" style="margin-top:12px"><div class="prog-fill" id="check-prog" style="width:0%;background:var(--color-text-success)"></div></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('show'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('show');
+  const tabs={overview:0,week1:1,week2:2,topics:3,checklist:4};
+  document.querySelectorAll('.tab')[tabs[id]].classList.add('active');
+}
+function toggleDay(id){
+  const body=document.getElementById('body-'+id);
+  const chev=document.getElementById('chev-'+id);
+  const open=body.classList.toggle('open');
+  chev.classList.toggle('open',open);
+}
+function toggleCheck(el){
+  const done=el.classList.toggle('done');
+  el.textContent=done?'✓':'';
+  const txt=el.nextElementSibling;
+  if(txt) txt.classList.toggle('done',done);
+  updateProgress();
+}
+function updateProgress(){
+  const total=document.querySelectorAll('.check-box').length;
+  const done=document.querySelectorAll('.check-box.done').length;
+  document.getElementById('check-count').textContent=done+' / '+total;
+  document.getElementById('check-prog').style.width=Math.round(done/total*100)+'%';
+}
+</script>
+</body>
+</html>
