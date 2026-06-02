@@ -48,3 +48,13 @@ The workspace is organized into a standard data science project structure:
 1. Clone this repository:
    ```bash
    git clone [https://github.com/Hashmil-Muhammed/bluestock-data-analyst-internship.git](https://github.com/Hashmil-Muhammed/bluestock-data-analyst-internship.git)
+2. Install the required dependencies
+Bash
+pip install -r requirements.txt
+Run the live NAV fetcher script:
+3.Run the live NAV fetcher script:
+Bash
+python scripts/live_nav_fetch.py
+📬 Contact
+Hashmil Muhammed Email: hashmilmuhammedparammal@gmail.com
+GitHub: @Hashmil-Muhammed
