@@ -1,6 +1,6 @@
 # 📈 Bluestock Mutual Fund Analytics - Capstone Project
 
-**Phases Completed:** `Day 1`, `Day 2` & `Day 3`
+**Phases Completed:** `Day 1`, `Day 2`, `Day 3` & `Day 4`
 
 ## 🎯 Project Overview
 This repository contains the ongoing Capstone Project for the **Bluestock Fintech Data Analyst Internship**. The goal of this project is to build an end-to-end Mutual Fund Analytics Platform using real-world public data from AMFI India and `mfapi.in`. 
@@ -93,7 +93,39 @@ This README documents the progressive completion of daily milestones, moving fro
 
 ---
 
-## 📂 Repository Structure (Updated: Day 3)
+## 📈 Day 4: Fund Performance Analytics
+
+### 1. Return Calculations
+- Computed **Daily Returns** for all 40 schemes and validated the normal distribution of returns.
+- Calculated the **Compound Annual Growth Rate (CAGR)** for 1-Year, 3-Year, and 5-Year horizons.
+
+### 2. Risk Metrics
+- Calculated annualized return and volatility metrics.
+- Computed the **Sharpe Ratio** (using a 6.5% risk-free rate) to measure risk-adjusted returns.
+- Computed the **Sortino Ratio** focusing solely on downside risk.
+- Identified the **Maximum Drawdown (MDD)** for each fund to assess maximum historical loss.
+
+### 3. Alpha & Beta (Market Regression)
+- Utilized `scipy.stats.linregress` to perform an OLS regression of fund returns against the market benchmark.
+- Extracted annualized **Alpha** (excess return over market) and **Beta** (market volatility correlation).
+
+### 4. Composite Fund Scorecard
+- Built a robust 0-100 Fund Scorecard system by applying strategic weights:
+  - 30% for 3Y CAGR
+  - 25% for Sharpe Ratio
+  - 20% for Alpha
+  - 15% for Expense Ratio (Inverse)
+  - 10% for Max Drawdown (Inverse)
+- Ranked and identified the Top 10 mutual funds in the dataset based on this composite score.
+
+### 5. Benchmark Comparison & Tracking Error
+- Visualized the Top 5 best-performing funds against the Market Benchmark over a 3-year cumulative growth period.
+- Computed the **Tracking Error** to measure how closely the funds follow the benchmark index.
+- Exported analytical results (`alpha_beta.csv`, `fund_scorecard.csv`) and visualizations (`benchmark_comparison.png`) to the `reports/` directory.
+
+---
+
+## 📂 Repository Structure (Updated: Day 4)
 
 ```text
 bluestock_mf_capstone/
@@ -103,14 +135,15 @@ bluestock_mf_capstone/
 │   └── db/                  # SQLite database (bluestock_mf.db)
 ├── notebooks/
 │   ├── 01_data_ingestion.ipynb # Initial EDA and data validation
-│   ├── 02_data_cleaning.ipynb  # Data cleaning & SQLAlchemy DB 
-│   └── 03_EDA_Analysis.ipynb   # Exploratory Data Analysis & Insights (Current)
+│   ├── 02_data_cleaning.ipynb  # Data cleaning & SQLAlchemy DB loading
+│   ├── 03_EDA_Analysis.ipynb   # Exploratory Data Analysis & Insights
+│   └── 04_Performance_Analytics.ipynb # Risk metrics, Alpha/Beta & Scorecard (Current)
 ├── scripts/
 │   └── live_nav_fetch.py       # Python script for mfapi.in REST API extraction
 ├── sql/
 │   ├── schema.sql           # SQLite Star Schema DDL statements
 │   └── queries.sql          # 10 Analytical business queries
-├── reports/                 # Exported PNG charts from EDA
+├── reports/                 # Exported PNG charts and CSV analytical reports
 ├── requirements.txt         # Project dependencies
 ├── data_dictionary.md       # Database schema and business definitions
 └── README.md                # Project Documentation (Current File)
