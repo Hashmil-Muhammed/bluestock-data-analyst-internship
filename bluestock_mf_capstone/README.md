@@ -1,11 +1,11 @@
 # 📈 Bluestock Mutual Fund Analytics - Capstone Project
 
-**Phases Completed:** `Day 1`, `Day 2`, `Day 3` & `Day 4`
+**Phases Completed:** `Day 1`, `Day 2`, `Day 3`, `Day 4` & `Day 5`
 
 ## 🎯 Project Overview
-This repository contains the ongoing Capstone Project for the **Bluestock Fintech Data Analyst Internship**. The goal of this project is to build an end-to-end Mutual Fund Analytics Platform using real-world public data from AMFI India and `mfapi.in`. 
+This repository contains the completed Capstone Project for the **Bluestock Fintech Data Analytics Internship**. The goal of this project is to build an end-to-end Mutual Fund Analytics Platform using real-world public data from AMFI India and `mfapi.in`. 
 
-This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering and analytics.
+This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering, analytics, and finally, a dynamic Power BI Dashboard.
 
 ---
 
@@ -71,7 +71,7 @@ This README documents the progressive completion of daily milestones, moving fro
 
 ### 1. Time-Series Analysis
 - Plotted the daily NAV trend for 40 schemes (2022-2026), successfully highlighting the 2023 bull run and 2024 market corrections using `Plotly`.
-- Visualized monthly SIP inflow trends, dynamically annotating the all-time high of ₹31,002 Cr in December 2025.
+- Visualized monthly SIP inflow trends, dynamically annotating the all-time high of ₹31,002 Cr.
 - Charted the mutual fund industry's folio count growth showing an increase from 13.26 Cr to 26.12 Cr.
 
 ### 2. Market Size & Category Analysis
@@ -125,25 +125,56 @@ This README documents the progressive completion of daily milestones, moving fro
 
 ---
 
-## 📂 Repository Structure (Updated: Day 4)
+## 📊 Day 5: Dashboard Development (Power BI)
+
+### 1. Data Modeling & Connection
+- Imported processed CSV files and benchmark indices into Power BI to construct a comprehensive, interactive data model.
+
+### 2. Page 1: Industry Overview
+- Designed dynamic KPI cards highlighting Total AUM (₹81L Cr), Monthly SIP Inflows (₹31K Cr), and Industry Folios (26.12 Cr).
+- Visualized historical AUM growth trends and top 10 dominant fund houses.
+
+### 3. Page 2: Fund Performance
+- Built an interactive Risk vs. Reward scatter plot (Return vs. Volatility).
+- Integrated the custom 0-100 Fund Scorecard as a sortable matrix.
+- Created comparative NAV line charts with drill-through capabilities.
+
+### 4. Page 3: Investor Analytics
+- Visualized demographic insights including transaction volume by state and age-group SIP averages.
+- Developed a Donut chart comparing SIP, Lumpsum, and Redemption distributions.
+
+### 5. Page 4: SIP & Market Trends
+- Developed a dual-axis chart correlating monthly SIP inflows with the Nifty 50 index movement.
+- Built a Matrix Heatmap to track category-wise capital inflows over time.
+- Implemented Top N filtering to showcase the most invested fund categories in FY25.
+
+### 6. Deliverables
+- Exported the finalized, branded dashboard as `bluestock_mf_dashboard.pbix`.
+- Generated a comprehensive multi-page `Dashboard.pdf` and high-resolution PNG snapshots for final reporting.
+
+---
+
+## 📂 Repository Structure (Final)
 
 ```text
 bluestock_mf_capstone/
 ├── data/
-│   ├── raw/                 # 10 original CSVs + Live API fetched CSVs
-│   ├── processed/           # Cleaned CSVs (nav_history, transactions, performance)
+│   ├── raw/                 # Original CSVs + Live API fetched CSVs
+│   ├── processed/           # Cleaned CSVs
 │   └── db/                  # SQLite database (bluestock_mf.db)
 ├── notebooks/
-│   ├── 01_data_ingestion.ipynb # Initial EDA and data validation
-│   ├── 02_data_cleaning.ipynb  # Data cleaning & SQLAlchemy DB loading
-│   ├── 03_EDA_Analysis.ipynb   # Exploratory Data Analysis & Insights
-│   └── 04_Performance_Analytics.ipynb # Risk metrics, Alpha/Beta & Scorecard (Current)
+│   ├── 01_data_ingestion.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_EDA_Analysis.ipynb
+│   └── 04_Performance_Analytics.ipynb
 ├── scripts/
-│   └── live_nav_fetch.py       # Python script for mfapi.in REST API extraction
+│   └── live_nav_fetch.py    # mfapi.in REST API extraction
 ├── sql/
-│   ├── schema.sql           # SQLite Star Schema DDL statements
-│   └── queries.sql          # 10 Analytical business queries
-├── reports/                 # Exported PNG charts and CSV analytical reports
+│   ├── schema.sql           # SQLite Star Schema DDL
+│   └── queries.sql          # Analytical business queries
+├── dashboard/               
+│   └── bluestock_mf_dashboard.pbix # Final Power BI Dashboard
+├── reports/                 # Exported PNG charts, CSVs, and Dashboard.pdf
 ├── requirements.txt         # Project dependencies
-├── data_dictionary.md       # Database schema and business definitions
+├── data_dictionary.md       # Database schema definitions
 └── README.md                # Project Documentation (Current File)
