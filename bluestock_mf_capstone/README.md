@@ -1,11 +1,11 @@
 # 📈 Bluestock Mutual Fund Analytics - Capstone Project
 
-**Phases Completed:** `Day 1`, `Day 2`, `Day 3`, `Day 4` & `Day 5`
+**Phases Completed:** `Day 1`, `Day 2`, `Day 3`, `Day 4`, `Day 5` & `Day 6`
 
 ## 🎯 Project Overview
 This repository contains the completed Capstone Project for the **Bluestock Fintech Data Analytics Internship**. The goal of this project is to build an end-to-end Mutual Fund Analytics Platform using real-world public data from AMFI India and `mfapi.in`. 
 
-This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering, analytics, and finally, a dynamic Power BI Dashboard.
+This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering, analytics, dynamic Power BI Dashboards, and advanced Python recommender systems.
 
 ---
 
@@ -154,6 +154,27 @@ This README documents the progressive completion of daily milestones, moving fro
 
 ---
 
+## 🧠 Day 6: Advanced Analytics & Risk Metrics
+
+### 1. Advanced Risk Metrics (VaR & CVaR)
+- Computed **Historical Value at Risk (VaR)** at a 95% confidence interval to determine the maximum expected daily loss for each fund.
+- Calculated **Conditional VaR (CVaR)** to measure the average loss in worst-case scenarios.
+- Visualized the **90-Day Rolling Sharpe Ratio** for top 5 funds to observe dynamic changes in risk-adjusted returns over time.
+
+### 2. Investor Behavioral Analytics
+- **Cohort Analysis:** Grouped investors by their first transaction year (2024 vs. 2025). Discovered that while 2024 had higher total investments, the 2025 cohort showed a higher average SIP amount (₹13,505 vs ₹10,996).
+- **SIP Continuation Risk:** Analyzed transaction gaps for investors with 6+ SIPs. Successfully flagged investors with average gaps exceeding 35 days as 'at-risk' for potential churn.
+
+### 3. Sector Concentration Risk (HHI)
+- Applied the **Herfindahl-Hirschman Index (HHI)** on portfolio holdings to assess sector concentration.
+- Identified and visualized the Top 10 most concentrated (high-risk) funds, highlighting vulnerabilities to specific sector downturns.
+
+### 4. Fund Recommendation System
+- Built an interactive Python script (`scripts/recommender.py`) to simulate a robo-advisor.
+- The system takes user **Risk Appetite (Low / Moderate / High)** as input and dynamically recommends the Top 3 mutual funds utilizing the Sharpe Ratio and matching risk grades.
+
+---
+
 ## 📂 Repository Structure (Final)
 
 ```text
@@ -166,15 +187,17 @@ bluestock_mf_capstone/
 │   ├── 01_data_ingestion.ipynb
 │   ├── 02_data_cleaning.ipynb
 │   ├── 03_EDA_Analysis.ipynb
-│   └── 04_Performance_Analytics.ipynb
+│   ├── 04_Performance_Analytics.ipynb
+│   └── 05_Advanced_Analytics.ipynb  # VaR, Cohort, HHI Analysis (Day 6)
 ├── scripts/
-│   └── live_nav_fetch.py    # mfapi.in REST API extraction
+│   ├── live_nav_fetch.py    # mfapi.in REST API extraction
+│   └── recommender.py       # Terminal-based Fund Recommender System (Day 6)
 ├── sql/
 │   ├── schema.sql           # SQLite Star Schema DDL
 │   └── queries.sql          # Analytical business queries
 ├── dashboard/               
 │   └── bluestock_mf_dashboard.pbix # Final Power BI Dashboard
-├── reports/                 # Exported PNG charts, CSVs, and Dashboard.pdf
+├── reports/                 # Exported PNG charts, CSV reports (Scorecards, VaR, HHI, Cohort), and PDFs
 ├── requirements.txt         # Project dependencies
 ├── data_dictionary.md       # Database schema definitions
 └── README.md                # Project Documentation (Current File)
