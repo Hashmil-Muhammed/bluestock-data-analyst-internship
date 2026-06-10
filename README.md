@@ -1,60 +1,388 @@
-# Bluestock Fintech Data Analyst Internship Portfolio
+<div align="center">
 
-Welcome to my Data Analyst Internship workspace! This repository contains all the projects, weekly assignments, and the final capstone work completed during my intensive 2-week internship at **Bluestock Fintech**. 
+# 📊 Bluestock Fintech Data Analyst Internship Portfolio
 
-It serves as a comprehensive portfolio showcasing end-to-end data pipelines, exploratory data analysis (EDA), and data visualization tasks focused on the Indian Mutual Fund industry.
+---
 
-## 🚀 Internship Roadmap & Progress
+### 🚀 From Learning Fundamentals to Building an End-to-End Mutual Fund Analytics Platform
 
-### 🟢 Week 1: Intensive Learning Phase (Completed)
-During the first week, I underwent rigorous training in data analytics, database management, and fintech concepts. The daily milestones achieved were:
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql)
+![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi)
+![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple?style=for-the-badge&logo=pandas)
+![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=for-the-badge&logo=github)
+![Status](https://img.shields.io/badge/Internship-Completed-success?style=for-the-badge)
 
-* **Day 1 (Python Foundation):** Environment setup, Python basics, and Object-Oriented Programming (OOP). Wrote a Python script to extract and analyze statistics from financial CSVs.
-* **Day 2 (Data Manipulation):** Mastered NumPy (arrays, operations) and Pandas (DataFrames, data cleaning). Completed an Exploratory Data Analysis (EDA) notebook on financial data.
-* **Day 3 (SQL & Databases):** Learned SQL fundamentals, CTEs, Window Functions, and set up PostgreSQL using pgAdmin. The Capstone project was officially assigned.
-* **Day 4 (Data Viz & APIs):** Explored Matplotlib and Seaborn for data storytelling. Built REST APIs using Flask and connected them to PostgreSQL via psycopg2.
-* **Day 5 (Fintech & ML Basics):** Studied stock market mechanics (OHLC, yfinance) and Mutual Funds (NAV, CAGR, SIP). Introduced to Machine Learning basics and reached 50% completion of the Capstone project.
+</div>
 
-### 🟡 Week 2: Capstone Execution & Testing (Current Phase: Week 2, Day 1)
-*I am currently on Week 2, Day 1 of the program.* This week focuses entirely on the Prerequisite Test preparation and the final polishing of the Capstone Project.
+---
 
-#### 📌 Current Capstone Project: Mutual Fund Analytics 
-**Phase 1: Data Ingestion & Quality Validation (Completed)**
-* Loaded and explored 10 extensive CSV datasets containing Mutual Fund historical data.
-* Developed a Python script (`live_nav_fetch.py`) to connect with the `mfapi.in` REST API and dynamically fetch live NAV data for 6 key schemes (including HDFC Top 100, SBI Bluechip, etc.).
-* Performed Exploratory Data Analysis (EDA) on the `fund_master` dataset to understand fund houses, categories, and risk grades.
-* Executed rigorous data validation to ensure cross-dataset consistency (mapping AMFI codes between `fund_master` and `nav_history`).
+## 📋 Table of Contents
 
-## 📂 Repository Structure
-The workspace is organized into a standard data science project structure:
+- [🎯 Internship Overview](#-internship-overview)
+- [🚀 Week 1: Intensive Learning Phase](#-week-1-intensive-learning-phase)
+- [📊 Week 2: Capstone Project Execution](#-week-2-capstone-project-execution)
+- [🏆 Internship Achievements](#-internship-achievements)
+- [📈 Capstone Project Highlights](#-capstone-project-highlights)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [🏗️ Repository Structure](#️-repository-structure)
+- [📸 Learning Journey](#-learning-journey)
+- [🚀 How to Run the Project](#-how-to-run-the-project)
+- [📂 Major Deliverables](#-major-deliverables)
+- [📬 Contact](#-contact)
 
-* **`data/`**: Contains all datasets used in the projects.
-    * `raw/`: Immutable original data and live data fetched via APIs.
-    * `processed/`: Cleaned and transformed datasets ready for analysis.
-* **`notebooks/`**: Jupyter notebooks for Exploratory Data Analysis (EDA) and step-by-step documentation.
-* **`scripts/`**: Python scripts for automated tasks (e.g., API data fetching).
-* **`sql/`**: SQL scripts for database creation and queries.
-* **`dashboard/`**: Power BI / Tableau dashboard files.
-* **`reports/`**: Final project reports, summaries, and presentations.
+---
 
-## 🛠️ Tech Stack & Tools
-* **Language:** Python
-* **Libraries:** Pandas, Requests, NumPy, Matplotlib, Seaborn
-* **APIs & Backend:** `mfapi.in`, Flask
-* **Database:** PostgreSQL (pgAdmin 4)
-* **Version Control:** Git & GitHub
+## 🎯 Internship Overview
 
-## 💡 How to Run the Code
-1. Clone this repository:
-   ```bash
-   git clone [https://github.com/Hashmil-Muhammed/bluestock-data-analyst-internship.git](https://github.com/Hashmil-Muhammed/bluestock-data-analyst-internship.git)
-2. Install the required dependencies
-Bash
+This repository showcases my complete journey during the **Bluestock Fintech Data Analyst Internship**.
+
+Over the course of two intensive weeks, I progressed from foundational Python programming and database concepts to developing a production-ready **Mutual Fund Analytics & Business Intelligence Platform**.
+
+### Key Focus Areas
+
+- Python Programming
+- Data Analysis & Visualization
+- SQL & Database Engineering
+- Financial Analytics
+- API Integration
+- ETL Pipeline Development
+- Power BI Dashboard Development
+- Machine Learning Fundamentals
+- End-to-End Data Engineering
+
+---
+
+## 🚀 Week 1: Intensive Learning Phase
+
+During the first week, I underwent rigorous training in data analytics, database management, and fintech concepts.
+
+### 📅 Day 1 — Python Foundation
+
+- Environment setup and tooling
+- Python fundamentals
+- Object-Oriented Programming (OOP)
+- Financial CSV analysis using Python
+
+### 📅 Day 2 — Data Manipulation
+
+- NumPy arrays and mathematical operations
+- Pandas DataFrames
+- Data Cleaning techniques
+- Exploratory Data Analysis (EDA)
+
+### 📅 Day 3 — SQL & Databases
+
+- SQL fundamentals
+- JOINs, CTEs, Window Functions
+- PostgreSQL installation and configuration
+- pgAdmin database management
+- Capstone Project assigned
+
+### 📅 Day 4 — Data Visualization & APIs
+
+- Matplotlib
+- Seaborn
+- Data storytelling techniques
+- REST API development using Flask
+- PostgreSQL integration with psycopg2
+
+### 📅 Day 5 — Fintech & Machine Learning Basics
+
+- Stock Market Fundamentals
+- OHLC Analysis
+- yFinance Integration
+- Mutual Fund Concepts
+  - NAV
+  - CAGR
+  - SIP
+- Introduction to Machine Learning
+- Capstone Project reached 50% completion
+
+---
+
+## 📊 Week 2: Capstone Project Execution
+
+The second week focused entirely on the design, implementation, testing, and final submission of the Mutual Fund Analytics Capstone Project.
+
+### 📅 Day 6 — Data Ingestion & Validation
+
+- Loaded 10 Mutual Fund datasets
+- Validated AMFI scheme mappings
+- Developed live NAV API integration
+- Initial EDA completed
+
+### 📅 Day 7 — Data Cleaning & Database Design
+
+- Data preprocessing pipeline
+- Missing value treatment
+- SQLite Star Schema design
+- SQLAlchemy ETL pipeline
+
+### 📅 Day 8 — Exploratory Data Analysis
+
+- NAV trend analysis
+- SIP inflow analysis
+- AUM growth tracking
+- Investor demographic analysis
+
+### 📅 Day 9 — Performance Analytics
+
+- CAGR Calculation
+- Sharpe Ratio
+- Sortino Ratio
+- Alpha & Beta
+- Maximum Drawdown
+
+### 📅 Day 10 — Power BI Dashboard Development
+
+- Industry Overview Dashboard
+- Fund Performance Dashboard
+- Investor Analytics Dashboard
+- SIP & Market Trends Dashboard
+
+### 📅 Day 11 — Advanced Analytics
+
+- Value at Risk (VaR)
+- Conditional VaR (CVaR)
+- HHI Concentration Analysis
+- Cohort Analysis
+
+### 📅 Day 12 — Recommender System Development
+
+- Risk-based Fund Recommendation Engine
+- Sharpe Ratio Ranking Logic
+- CLI Application Development
+
+### 📅 Day 13 — Final Submission & Documentation
+
+- Pipeline Automation
+- Report Generation
+- Power BI Dashboard Export
+- Final Presentation
+- Repository Documentation
+
+---
+
+## 🏆 Internship Achievements
+
+- ✅ Completed Bluestock Fintech Data Analyst Internship
+- ✅ Developed End-to-End Mutual Fund Analytics Platform
+- ✅ Built Interactive Power BI Dashboard
+- ✅ Designed Star Schema Data Warehouse
+- ✅ Implemented SQLAlchemy ETL Pipeline
+- ✅ Developed Risk-Based Fund Recommendation System
+- ✅ Performed Advanced Financial Analytics
+- ✅ Automated Complete Data Processing Workflow
+
+---
+
+## 📈 Capstone Project Highlights
+
+### Mutual Fund Analytics & Business Intelligence Platform
+
+The Capstone Project was designed as an end-to-end financial analytics solution using real-world Mutual Fund datasets and live NAV data.
+
+### 📊 Data Engineering
+
+- Raw Data Ingestion
+- API Integration
+- Data Validation
+- ETL Processing
+- SQLite Data Warehouse
+
+### 📈 Financial Analytics
+
+- CAGR
+- Sharpe Ratio
+- Sortino Ratio
+- Alpha & Beta
+- Maximum Drawdown
+- Value at Risk (VaR)
+- Conditional VaR (CVaR)
+
+### 📊 Business Intelligence
+
+- Interactive Power BI Dashboard
+- Industry KPI Monitoring
+- Fund Performance Analysis
+- Investor Analytics
+- Market Trend Tracking
+
+### 🤖 Automation & Applications
+
+- Live NAV Fetching
+- Automated Data Pipeline
+- Risk-Based Fund Recommender
+
+---
+
+## 🛠️ Technology Stack
+
+| Category | Technologies |
+|-----------|-------------|
+| Programming | Python |
+| Data Analysis | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Dashboarding | Power BI |
+| Database | PostgreSQL, SQLite |
+| ORM | SQLAlchemy |
+| APIs | Flask, REST APIs |
+| Tools | Git, GitHub, Jupyter Notebook |
+
+---
+
+## 🏗️ Repository Structure
+
+```text
+📦 Internship at BlueStock
+┣ 📂 Hashmil_Submission
+┃ ┣ 📂 Source Code
+┃ ┣ 📂 Datasets
+┃ ┣ 📂 Documentation
+┃ ┣ 📂 PPT,Slides
+┃ ┗ 📂 Demo Video
+┃
+┣ 📂 bluestock_mf_capstone
+┃ ┣ 📂 data
+┃ ┣ 📂 notebooks
+┃ ┣ 📂 scripts
+┃ ┣ 📂 sql
+┃ ┣ 📂 dashboard
+┃ ┣ 📂 reports
+┃ ┣ 📜 run_pipeline.py
+┃ ┣ 📜 README.md
+┃ ┗ 📜 Bluestock_MF_Presentation.pptx
+┃
+┣ 📂 learning-journey-week1
+┃ ┣ 📜 Day1.png
+┃ ┣ 📜 Day2.png
+┃ ┣ 📜 Day3.png
+┃ ┣ 📜 Day4.png
+┃ ┣ 📜 Day5.png
+┃ ┗ 📜 Week1.png
+┃
+┣ 📂 Project-journey-week2
+┃ ┣ 📜 Day6.png
+┃ ┣ 📜 Day7.png
+┃ ┣ 📜 Day8.png
+┃ ┣ 📜 Day11.png
+┃ ┣ 📜 Day12.png
+┃ ┗ 📜 Day13.png
+┃
+┗ 📜 README.md
+```
+
+---
+
+## 📸 Learning Journey
+
+### Week 1 Learning Progress
+
+| Day | Progress |
+|------|----------|
+| Day 1 | Python Foundation |
+| Day 2 | NumPy & Pandas |
+| Day 3 | SQL & Databases |
+| Day 4 | Data Visualization & APIs |
+| Day 5 | Fintech & ML Basics |
+
+### Week 2 Capstone Progress
+
+| Day | Milestone |
+|------|----------|
+| Day 6 | Data Ingestion & Validation |
+| Day 7 | Data Cleaning & Database Design |
+| Day 8 | Exploratory Data Analysis |
+| Day 9 | Performance Analytics |
+| Day 10 | Power BI Dashboard Development |
+| Day 11 | Advanced Analytics |
+| Day 12 | Recommender System |
+| Day 13 | Final Submission |
+
+---
+
+## 🚀 How to Run the Project
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Hashmil-Muhammed/bluestock-data-analyst-internship.git
+
+cd bluestock-data-analyst-internship
+```
+
+### Install Dependencies
+
+```bash
 pip install -r requirements.txt
-Run the live NAV fetcher script:
-3.Run the live NAV fetcher script:
-Bash
-python scripts/live_nav_fetch.py
-📬 Contact
-Hashmil Muhammed Email: hashmilmuhammedparammal@gmail.com
-GitHub: @Hashmil-Muhammed
+```
+
+### Run Live NAV Fetcher
+
+```bash
+python bluestock_mf_capstone/scripts/live_nav_fetch.py
+```
+
+### Run Fund Recommendation Engine
+
+```bash
+python bluestock_mf_capstone/scripts/recommender.py
+```
+
+### Run Complete Pipeline
+
+```bash
+python bluestock_mf_capstone/run_pipeline.py
+```
+
+---
+
+## 📂 Major Deliverables
+
+### 📊 Dashboards
+
+- Power BI Dashboard (.pbix)
+- Dashboard PDF Export
+
+### 📑 Documentation
+
+- Final Project Report
+- Data Dictionary
+- Project Roadmap
+
+### 📈 Analytics Reports
+
+- Fund Scorecard
+- Alpha & Beta Analysis
+- VaR & CVaR Reports
+- HHI Concentration Analysis
+- Cohort Analysis
+
+### 🎤 Presentation
+
+- Bluestock_MF_Presentation.pptx
+
+---
+
+## 📬 Contact
+
+### Hashmil Muhammed
+
+📧 Email: hashmilmuhammedparammal@gmail.com
+
+🔗 LinkedIn: https://www.linkedin.com/in/hashmil-muhammed08/
+
+🔗 GitHub: https://github.com/Hashmil-Muhammed
+
+---
+
+<div align="center">
+
+## ⭐ Internship Completed Successfully ⭐
+
+### From Python Fundamentals ➜ Data Analytics ➜ Financial Engineering ➜ Power BI ➜ End-to-End Mutual Fund Analytics Platform
+
+Thank you for visiting my Bluestock Internship Portfolio.
+
+</div>

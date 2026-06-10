@@ -1,3 +1,10 @@
+"""
+Live NAV Fetcher
+----------------
+This script interacts with the public mfapi.in REST API to dynamically fetch 
+live Net Asset Value (NAV) data for critical benchmark mutual fund schemes.
+"""
+
 import requests
 import pandas as pd
 import os

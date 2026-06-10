@@ -1,11 +1,46 @@
-# 📈 Bluestock Mutual Fund Analytics - Capstone Project
+<div align="center">
 
-**Phases Completed:** `Day 1`, `Day 2`, `Day 3`, `Day 4`, `Day 5` & `Day 6`
+# 📈 Bluestock Mutual Fund Analytics
+### End-to-End Mutual Fund Analytics & Business Intelligence Platform
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow)
+![SQLite](https://img.shields.io/badge/SQLite-Database-green)
+![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple)
+![Status](https://img.shields.io/badge/Project-Completed-success)
+
+---
+</div>
+
+## 📋 Table of Contents
+
+- [🎯 Project Overview](#-project-overview)
+- [🚀 Day 1: Data Ingestion, API Integration & Quality Validation](#-day-1-data-ingestion-api-integration--quality-validation)
+- [🛠️ Day 2: Data Cleaning & SQL Database Design](#️-day-2-data-cleaning--sql-database-design)
+- [📊 Day 3: Exploratory Data Analysis & Business Insights](#-day-3-exploratory-data-analysis--business-insights)
+- [📈 Day 4: Fund Performance Analytics](#-day-4-fund-performance-analytics)
+- [📊 Day 5: Dashboard Development (Power BI)](#-day-5-dashboard-development-power-bi)
+- [🧠 Day 6: Advanced Analytics & Risk Metrics](#-day-6-advanced-analytics--risk-metrics)
+- [🚀 Day 7: Pipeline Automation, Code Standardization & Final Submission](#-day-7-pipeline-automation-code-standardization--final-submission)
+- [🏗️ System Architecture & Data Flow](#️-system-architecture--data-flow)
+- [📊 Analytical Metrics Engine](#-analytical-metrics-engine)
+- [🖥️ Interactive Dashboard Architecture](#️-interactive-dashboard-architecture)
+- [📂 Repository Structure](#-repository-structure)
+- [🛠️ Execution & Setup Guide](#️-execution--setup-guide)
+- [📑 Final Deliverables](#-final-deliverables)
+- [📜 License](#-license)
+
+---
 
 ## 🎯 Project Overview
-This repository contains the completed Capstone Project for the **Bluestock Fintech Data Analytics Internship**. The goal of this project is to build an end-to-end Mutual Fund Analytics Platform using real-world public data from AMFI India and `mfapi.in`. 
 
-This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering, analytics, dynamic Power BI Dashboards, and advanced Python recommender systems.
+This repository contains the completed Capstone Project for the **Bluestock Fintech Data Analytics Internship**.
+
+The goal of this project is to build an end-to-end Mutual Fund Analytics Platform using real-world public data from AMFI India and `mfapi.in`.
+
+This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering, analytics, dynamic Power BI Dashboards, advanced Python recommender systems, and final production automation.
+
+**Phases Completed:** `Day 1` • `Day 2` • `Day 3` • `Day 4` • `Day 5` • `Day 6` • `Day 7 (Final Submission)`
 
 ---
 
@@ -175,29 +210,187 @@ This README documents the progressive completion of daily milestones, moving fro
 
 ---
 
-## 📂 Repository Structure (Final)
+## 🚀 Day 7: Pipeline Automation, Code Standardization & Final Submission
+
+### 1. Master Pipeline Orchestration (`run_pipeline.py`)
+- Engineered a centralized execution master controller script (`run_pipeline.py`) located at the project root folder.
+- Utilizes dynamic workspace **Absolute Path Resolution** (`os.path.abspath(__file__)`) to reliably map and run the dynamic data ingestion sequence irrespective of the user's execution terminal environment.
+- Implemented professional subprocess handling using `subprocess.run` with strict `CalledProcessError` exceptions to isolate syntax or network latency bottlenecks during real-time extraction.
+
+### 2. Repository Cleaning & Modular Subdirectory Documentation
+- Standardized directory hygiene by reviewing, structuring, and deploying custom, standalone `README.md` descriptive files across all 6 submodules (`data/`, `notebooks/`, `scripts/`, `sql/`, `dashboard/`, `reports/`).
+- Clarified downstream asset visibility including Star Schema environments, Power BI structures, specific quantitative `.csv` results, and execution orders.
+
+### 3. Production of Final Executive Deliverables
+- Compiled and formatted the **Comprehensive Final Report** (`Final_Report.pdf`, `Final_Report.docx`) in the `reports/` folder, neatly detailing Executive Summaries, Star Schema performance, advanced risk matrices, and Power BI navigation logs.
+- Produced the comprehensive **12-Slide Presentation Deck** (`Bluestock_MF_Presentation.pptx`) utilizing an optimized fintech visual palette layout to effectively pitch strategic business discoveries and automated risk rebalancing methodologies to core stakeholders.
+
+---
+
+## 🏗️ System Architecture & Data Flow
 
 ```text
-bluestock_mf_capstone/
-├── data/
-│   ├── raw/                 # Original CSVs + Live API fetched CSVs
-│   ├── processed/           # Cleaned CSVs
-│   └── db/                  # SQLite database (bluestock_mf.db)
-├── notebooks/
-│   ├── 01_data_ingestion.ipynb
-│   ├── 02_data_cleaning.ipynb
-│   ├── 03_EDA_Analysis.ipynb
-│   ├── 04_Performance_Analytics.ipynb
-│   └── 05_Advanced_Analytics.ipynb  # VaR, Cohort, HHI Analysis (Day 6)
-├── scripts/
-│   ├── live_nav_fetch.py    # mfapi.in REST API extraction
-│   └── recommender.py       # Terminal-based Fund Recommender System (Day 6)
-├── sql/
-│   ├── schema.sql           # SQLite Star Schema DDL
-│   └── queries.sql          # Analytical business queries
-├── dashboard/               
-│   └── bluestock_mf_dashboard.pbix # Final Power BI Dashboard
-├── reports/                 # Exported PNG charts, CSV reports (Scorecards, VaR, HHI, Cohort), and PDFs
-├── requirements.txt         # Project dependencies
-├── data_dictionary.md       # Database schema definitions
-└── README.md                # Project Documentation (Current File)
+           ┌───────────────────────────────────────┐
+[Raw AMFI Ingestion Layer]               [Dynamic Live REST API]
+            │                                       │
+            ▼                                       ▼
+   (Pandas Data Cleaning)              (scripts/live_nav_fetch.py)
+            │                                       │
+            └───────────────────┬───────────────────┘
+                                │
+                                ▼
+                    [SQLAlchemy ETL Engine]
+                                │
+                                ▼
+         [Structured Star Schema Warehouse: SQLite DB]
+
+          ┌────────────────────────────────────────────┐
+          │ Dimensions : dim_fund, dim_date, dim_user  │
+          │ Facts      : fact_nav, fact_transactions,  │
+          │              fact_performance              │
+          └─────────────────────┬──────────────────────┘
+                                │
+          ┌─────────────────────┼───────────────────────┐
+          ▼                     ▼                       ▼
+
+[Jupyter Analytics]    [Power BI BI Engine]        [Robo Recommender App]
+📊 Advanced Risk(VaR)  📊 Multi-page Dashboards   ⚙️Sharpe-driven Risk
+📊 Concentration(HHI)  📊 Drill-through Insights  Mapping CLI Tool
+```
+
+---
+
+## 📊 Analytical Metrics Engine
+
+| Metric Layer | Statistical Implementation | Operational Purpose |
+|--------------|---------------------------|---------------------|
+| **CAGR** | (End Value / Start Value)^(1/n) - 1 | Compounded annualized growth rate evaluation |
+| **Sharpe Ratio** | (Rp - Rf) / σp | Reward-to-volatility performance measurement |
+| **Alpha & Beta** | Rp = α + βRm + ε | Market benchmark regression analysis |
+| **Value at Risk (VaR)** | 5th Percentile (Historical Distribution) | Captures extreme downside risk exposure |
+| **HHI Index** | Σ(Si²) | Measures sector concentration risk |
+
+> **Note:** GitHub Markdown does not natively render LaTeX equations inside tables. Formula notation has been simplified for proper display.
+
+---
+
+## 🖥️ Interactive Dashboard Architecture
+
+The Power BI visualization layout contains four strategic analytic portals engineered for executive stakeholders:
+
+* **Industry Overview (Portal 1):** Real-time monitoring matrix evaluating macro KPIs, underlying growth curves, and market share distribution maps across dominant asset management houses.
+* **Fund Performance Matrix (Portal 2):** Advanced portfolio tracking layout featuring interactive scatter visuals alongside custom 0-100 composite index matrixes.
+* **Investor Behavioral Trends (Portal 3):** Demographic profiling tracking regional volume distribution, city tiers, and redemption flow metrics.
+* **Market Inflow Dynamics (Portal 4):** Dual-axis tracking environments correlating underlying mutual fund growth lines with structural financial market indicators over time.
+
+---
+
+## 📁 Repository Structure
+
+```text
+📦bluestock_mf_capstone
+ ┣ 📂data
+ ┃ ┣ 📂raw                         # Immutable source assets & live API extractions
+ ┃ ┃ ┣ 📜01_fund_master.csv
+ ┃ ┃ ┣ 📜02_nav_history.csv
+ ┃ ┃ ┣ 📜... (Other raw datasets)
+ ┃ ┃ ┗ 📜125497_HDFC_TOP_100_live.csv
+ ┃ ┣ 📂processed                   # Standardized, cleaned, and filled datasets
+ ┃ ┃ ┣ 📜clean_nav_history.csv
+ ┃ ┃ ┗ 📜clean_transaction.csv
+ ┃ ┣ 📂db                          # SQLite Star Schema warehouse engine
+ ┃ ┃ ┗ 📜bluestock_mf.db
+ ┃ ┗ 📜README.md
+ ┣ 📂notebooks                     # Sequential pipeline processing environments
+ ┃ ┣ 📜01_data_ingestion.ipynb
+ ┃ ┣ 📜02_data_cleaning.ipynb
+ ┃ ┣ 📜03_EDA_Analysis.ipynb
+ ┃ ┣ 📜04_Performance_Analytics.ipynb
+ ┃ ┣ 📜05_Advanced_Analytics.ipynb
+ ┃ ┗ 📜README.md
+ ┣ 📂scripts                       # Production automation & execution apps
+ ┃ ┣ 📜live_nav_fetch.py
+ ┃ ┣ 📜recommender.py
+ ┃ ┗ 📜README.md
+ ┣ 📂sql                           # Structural warehouse creation logic
+ ┃ ┣ 📜schema.sql
+ ┃ ┣ 📜queries.sql
+ ┃ ┗ 📜README.md
+ ┣ 📂dashboard                     # Front-end business intelligence binaries
+ ┃ ┣ 📜bluestock_mf_dashboard.pbix
+ ┃ ┗ 📜README.md
+ ┣ 📂reports                       # Exported analytical metrics, visuals & PDFs
+ ┃ ┣ 📜fund_scorecard.csv
+ ┃ ┣ 📜var_cvar_reports.csv
+ ┃ ┣ 📜sector_hhi_chart.png
+ ┃ ┣ 📜Dashboard - Page1.png
+ ┃ ┣ 📜Final_Report.pdf
+ ┃ ┗ 📜README.md
+ ┣ 📜requirements.txt              # Standard system dependencies
+ ┣ 📜data_dictionary.md            # Warehouse data model catalog
+ ┣ 📜run_pipeline.py               # Absolute path automation master controller
+ ┗ 📜Bluestock_MF_Presentation.pptx # Fintech investment presentation deck
+
+```
+
+---
+
+## 🛠️ Execution & Setup Guide
+
+### 1. System Deployment & Virtual Environment Setup
+
+Initialize a shell platform inside your target workstation path, fetch the production repository, and activate the Python dependency environment:
+
+```bash
+# Clone the repository
+git clone https://github.com/hashmilmuhammed/bluestock_mf_capstone.git
+
+cd bluestock_mf_capstone
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Run the Automation Master Pipeline
+
+Execute the root orchestration file. This handles dynamic absolute directory discovery, ensures structural alignment, and triggers live REST API endpoints automatically:
+
+```bash
+python run_pipeline.py
+```
+
+### 3. Initialize the Interactive Financial Robo-Advisor App
+
+Launch the interactive terminal-based tool to evaluate mutual fund schemes dynamically against individual risk parameters:
+
+```bash
+python scripts/recommender.py
+```
+
+### 4. Review Analytical Environments & Visual Dashboards
+
+- Navigate into the `notebooks/` workspace and execute files `01` through `05` sequentially.
+- Open `dashboard/bluestock_mf_dashboard.pbix` using Power BI Desktop to explore interactive visualizations and performance insights.
+
+---
+
+## 📑 Final Deliverables
+
+### Project Deliverables
+
+- 📄 `Bluestock_MF_Capstone_Project.pdf`
+- 📊 `Bluestock_MF_Presentation.pptx`
+- 📈 `bluestock_mf_dashboard.pbix`
+- 📑 `Final_Report.pdf`
+- 🗄️ `bluestock_mf.db`
+- 📋 `fund_scorecard.csv`
+- 📋 `alpha_beta.csv`
+- 📋 `var_cvar_reports.csv`
+- 📋 `sector_hhi.csv`
+- 📋 `cohort_analysis.csv`
+
+---
+
+## 📜 License
+
+This project was developed as part of the **Bluestock Fintech Data Analytics Internship Capstone Project** and is intended for educational and portfolio purposes.

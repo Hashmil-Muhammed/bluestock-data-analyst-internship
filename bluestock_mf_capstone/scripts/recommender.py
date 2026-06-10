@@ -1,3 +1,11 @@
+"""
+Mutual Fund Recommender System
+------------------------------
+This script recommends the top 3 mutual funds based on the user's risk appetite.
+It merges fund master data with computed risk metrics (Sharpe Ratio) to provide
+data-driven recommendations.
+"""
+
 import pandas as pd
 import os
 
