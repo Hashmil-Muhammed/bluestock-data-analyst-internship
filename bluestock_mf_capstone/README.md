@@ -230,7 +230,7 @@ This README documents the progressive completion of daily milestones, moving fro
 ## 🏗️ System Architecture & Data Flow
 
 ```text
-           ┌───────────────────────────────────────┐
+            ┌───────────────────────────────────────┐
 [Raw AMFI Ingestion Layer]               [Dynamic Live REST API]
             │                                       │
             ▼                                       ▼
@@ -255,7 +255,7 @@ This README documents the progressive completion of daily milestones, moving fro
 
 [Jupyter Analytics]    [Power BI BI Engine]        [Robo Recommender App]
 📊 Advanced Risk(VaR)  📊 Multi-page Dashboards   ⚙️Sharpe-driven Risk
-📊 Concentration(HHI)  📊 Drill-through Insights  Mapping CLI Tool
+📊 Concentration(HHI)  📊 Drill-through Insights   Mapping CLI Tool
 ```
 
 ---
