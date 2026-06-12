@@ -4,14 +4,14 @@
 # 📈 Bluestock Mutual Fund Analytics
 ### End-to-End Mutual Fund Analytics & Business Intelligence Platform
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql)
-![SQLite](https://img.shields.io/badge/SQLite-Database-green)
-![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple)
-![Status](https://img.shields.io/badge/Project-Completed-success)
-![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=for-the-badge&logo=github)
-![Streamlit](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?logo=streamlit)
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
+![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Database-green?style=for-the-badge&logo=sqlite&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple?style=for-the-badge&logo=pandas&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=for-the-badge&logo=github&logoColor=white)
+![Status](https://img.shields.io/badge/Project-Completed-success?style=for-the-badge&logo=checkmarx&logoColor=white)
 
 <br>
 <a href="https://bluestock-analytics-hashmil.streamlit.app/" target="_blank">
