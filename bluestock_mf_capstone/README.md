@@ -7,7 +7,10 @@
 ![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-green)
 ![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?logo=streamlit)
 ![Status](https://img.shields.io/badge/Project-Completed-success)
+
+### **[🌐 Click Here to View the Live Streamlit Dashboard](https://bluestock-analytics-hashmil.streamlit.app/)**
 
 ---
 </div>
@@ -15,6 +18,7 @@
 ## 📋 Table of Contents
 
 - [🎯 Project Overview](#-project-overview)
+- [🌐 Live Web Application (Bonus Task)](#-live-web-application-bonus-task)
 - [🚀 Day 1: Data Ingestion, API Integration & Quality Validation](#-day-1-data-ingestion-api-integration--quality-validation)
 - [🛠️ Day 2: Data Cleaning & SQL Database Design](#️-day-2-data-cleaning--sql-database-design)
 - [📊 Day 3: Exploratory Data Analysis & Business Insights](#-day-3-exploratory-data-analysis--business-insights)
@@ -41,6 +45,19 @@ The goal of this project is to build an end-to-end Mutual Fund Analytics Platfor
 This README documents the progressive completion of daily milestones, moving from raw data ingestion to structured data engineering, analytics, dynamic Power BI Dashboards, advanced Python recommender systems, and final production automation.
 
 **Phases Completed:** `Day 1` • `Day 2` • `Day 3` • `Day 4` • `Day 5` • `Day 6` • `Day 7 (Final Submission)`
+
+---
+## 🌐 Live Web Application (Bonus Task)
+
+As an extra-mile initiative, the analytical engine has been deployed as a publicly accessible, interactive web application.
+
+👉 **[Launch Bluestock Analytics Pro (Live App)](https://bluestock-analytics-hashmil.streamlit.app/)**
+
+**Premium Features Integrated:**
+* Institutional-grade dark-themed UI with custom glassmorphism CSS.
+* Real-time Multi-Fund Relative Performance Tracking (Base 100 Indexing).
+* 50-Day Simple Moving Average (SMA) Momentum Indicators.
+* Dynamic SQLite Database connectivity with smart CSV fallbacks via Absolute Path Resolution.
 
 ---
 
@@ -326,6 +343,7 @@ The Power BI visualization layout contains four strategic analytic portals engin
  ┃ ┣ 📜Dashboard - Page1.png
  ┃ ┣ 📜Final_Report.pdf
  ┃ ┗ 📜README.md
+ ┣ 📜streamlit_app.py              # Premium Streamlit Web Dashboard
  ┣ 📜requirements.txt              # Standard system dependencies
  ┣ 📜data_dictionary.md            # Warehouse data model catalog
  ┣ 📜run_pipeline.py               # Absolute path automation master controller
@@ -343,7 +361,7 @@ Initialize a shell platform inside your target workstation path, fetch the produ
 
 ```bash
 # Clone the repository
-git clone https://github.com/hashmilmuhammed/bluestock_mf_capstone.git
+git clone https://github.com/Hashmil-Muhammed/Bluestock-Data-Analyst-Internship/tree/main/bluestock_mf_capstone
 
 cd bluestock_mf_capstone
 
