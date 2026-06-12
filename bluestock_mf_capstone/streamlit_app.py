@@ -83,9 +83,13 @@ st.markdown("<hr style='border: 1px solid #1e293b; margin-top: 5px;'>", unsafe_a
 # ==========================================
 @st.cache_data
 def get_data():
-    conn = sqlite3.connect('data/db/bluestock_mf.db')
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     
-    query_nav = """
+    db_path = os.path.join(BASE_DIR, 'data', 'db', 'bluestock_mf.db')
+    
+    conn = sqlite3.connect(db_path)
+    
+query_nav = """
     SELECT n.nav_date, n.nav, n.amfi_code, f.scheme_name, f.category 
     FROM fact_nav n
     JOIN dim_fund f ON n.amfi_code = f.amfi_code
@@ -99,7 +103,7 @@ def get_data():
     try:
         df_sip = pd.read_sql_query("SELECT * FROM fact_sip_industry", conn)
     except:
-        sip_path = 'data/raw/04_monthly_sip_inflows.csv'
+        sip_path = os.path.join(BASE_DIR, 'data', 'raw', '04_monthly_sip_inflows.csv')
         if os.path.exists(sip_path):
             df_sip = pd.read_csv(sip_path)
         else:
@@ -108,7 +112,7 @@ def get_data():
     try:
         df_aum = pd.read_sql_query("SELECT * FROM fact_aum", conn)
     except:
-        aum_path = 'data/raw/03_aum_by_fund_house.csv'
+        aum_path = os.path.join(BASE_DIR, 'data', 'raw', '03_aum_by_fund_house.csv')
         if os.path.exists(aum_path):
             df_aum = pd.read_csv(aum_path)
         else:
@@ -118,8 +122,6 @@ def get_data():
     
     df_nav['nav_date'] = pd.to_datetime(df_nav['nav_date'])
     return df_nav, df_sip, df_aum
-
-df_nav, df_sip, df_aum = get_data()
 
 # ==========================================
 # 4. SIDEBAR FILTERS
