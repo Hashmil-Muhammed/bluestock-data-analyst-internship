@@ -5,72 +5,28 @@ import plotly.express as px
 import os
 
 # ==========================================
-# 1. PAGE CONFIG & PREMIUM CSS (No Emojis)
+# 1. PAGE CONFIG & PREMIUM CSS
 # ==========================================
 st.set_page_config(page_title="Bluestock Pro Analytics", layout="wide")
 
-# Injecting Custom CSS for Premium UI (Dark Theme, Cards, Custom Tabs)
 st.markdown("""
     <style>
-    /* Main Background & Text */
-    .stApp {
-        background-color: #0b101a;
-        color: #e2e8f0;
-        font-family: 'Inter', sans-serif;
-    }
-    
-    /* Sidebar styling */
-    [data-testid="stSidebar"] {
-        background-color: #121826;
-        border-right: 1px solid #1e293b;
-    }
-    
-    /* KPI Metrics Styling */
-    [data-testid="stMetricValue"] {
-        color: #38bdf8;
-        font-size: 2rem;
-        font-weight: 700;
-    }
-    [data-testid="stMetricLabel"] {
-        color: #94a3b8;
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
-    
-    /* Customizing Tabs */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 15px;
-        border-bottom: 1px solid #1e293b;
-    }
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        background-color: transparent;
-        color: #94a3b8;
-        font-weight: 600;
-        font-size: 1.1rem;
-        padding: 0 20px;
-        border: none;
-    }
-    .stTabs [aria-selected="true"] {
-        color: #ffffff;
-        border-bottom: 3px solid #38bdf8;
-        background-color: rgba(56, 189, 248, 0.1);
-        border-radius: 5px 5px 0 0;
-    }
-    
-    /* Headers */
-    h1, h2, h3 {
-        color: #ffffff;
-    }
+    .stApp { background-color: #0b101a; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+    [data-testid="stSidebar"] { background-color: #121826; border-right: 1px solid #1e293b; }
+    [data-testid="stMetricValue"] { color: #38bdf8; font-size: 2rem; font-weight: 700; }
+    [data-testid="stMetricLabel"] { color: #94a3b8; font-size: 1.1rem; font-weight: 500; }
+    .stTabs [data-baseweb="tab-list"] { gap: 15px; border-bottom: 1px solid #1e293b; }
+    .stTabs [data-baseweb="tab"] { height: 50px; background-color: transparent; color: #94a3b8; font-weight: 600; font-size: 1.1rem; padding: 0 20px; border: none; }
+    .stTabs [aria-selected="true"] { color: #ffffff; border-bottom: 3px solid #38bdf8; background-color: rgba(56, 189, 248, 0.1); border-radius: 5px 5px 0 0; }
+    h1, h2, h3 { color: #ffffff; }
     </style>
     """, unsafe_allow_html=True)
 
 # ==========================================
-# 2. HEADER SECTION (Logo & Title)
+# 2. HEADER SECTION
 # ==========================================
 col_logo, col_title = st.columns([1, 15])
 with col_logo:
-    # Professional Icon instead of Emoji
     st.image("https://cdn-icons-png.flaticon.com/512/2933/2933116.png", width=60)
 with col_title:
     st.markdown("<h1 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1.2;'>Bluestock Analytics Pro</h1>", unsafe_allow_html=True)
@@ -79,17 +35,16 @@ with col_title:
 st.markdown("<hr style='border: 1px solid #1e293b; margin-top: 5px;'>", unsafe_allow_html=True)
 
 # ==========================================
-# 3. DATA ENGINE (Unchanged Logic)
+# 3. DATA ENGINE (Absolute Path Fix)
 # ==========================================
 @st.cache_data
 def get_data():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    
     db_path = os.path.join(BASE_DIR, 'data', 'db', 'bluestock_mf.db')
     
     conn = sqlite3.connect(db_path)
     
-query_nav = """
+    query_nav = """
     SELECT n.nav_date, n.nav, n.amfi_code, f.scheme_name, f.category 
     FROM fact_nav n
     JOIN dim_fund f ON n.amfi_code = f.amfi_code
@@ -122,6 +77,8 @@ query_nav = """
     
     df_nav['nav_date'] = pd.to_datetime(df_nav['nav_date'])
     return df_nav, df_sip, df_aum
+
+df_nav, df_sip, df_aum = get_data()
 
 # ==========================================
 # 4. SIDEBAR FILTERS
@@ -157,7 +114,6 @@ filtered_data = df_nav[
 # ==========================================
 tab1, tab2 = st.tabs(["Fund Performance", "Macro Industry Trends"])
 
-# --- TAB 1: Fund Performance ---
 with tab1:
     st.markdown("<br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
@@ -181,7 +137,6 @@ with tab1:
         with chart_col:
             st.markdown(f"<h4 style='color: #e2e8f0;'>Historical NAV Trajectory</h4>", unsafe_allow_html=True)
             
-            # Premium Chart Styling
             fig_nav = px.area(filtered_data, x='nav_date', y='nav', title="")
             fig_nav.update_traces(line_color='#38bdf8', fillcolor='rgba(56, 189, 248, 0.1)')
             fig_nav.update_layout(
@@ -212,7 +167,6 @@ with tab1:
     else:
         st.warning("No data available for the selected date range. Please adjust the calendar filter.")
 
-# --- TAB 2: Macro Industry Trends ---
 with tab2:
     st.markdown("<br>", unsafe_allow_html=True)
     col_sip, col_aum = st.columns(2)
