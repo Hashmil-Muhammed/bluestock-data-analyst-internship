@@ -8,10 +8,12 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql)
+![SQLite](https://img.shields.io/badge/SQLite-Database-green)
 ![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi)
 ![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple?style=for-the-badge&logo=pandas)
 ![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=for-the-badge&logo=github)
 ![Status](https://img.shields.io/badge/Internship-Completed-success?style=for-the-badge)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?logo=streamlit)
 
 </div>
 
@@ -23,12 +25,10 @@
 - [🚀 Week 1: Intensive Learning Phase](#-week-1-intensive-learning-phase)
 - [📊 Week 2: Capstone Project & Enterprise Automation](#-week-2-capstone-project--enterprise-automation)
 - [🏆 Internship Achievements](#-internship-achievements)
-- [📈 Capstone Project Highlights](#-capstone-project-highlights)
 - [🛠️ Technology Stack](#️-technology-stack)
 - [🏗️ Repository Structure](#️-repository-structure)
 - [📸 Learning Journey](#-learning-journey)
 - [🚀 How to Run the Project](#-how-to-run-the-project)
-- [📂 Major Deliverables](#-major-deliverables)
 - [📬 Contact](#-contact)
 
 ---

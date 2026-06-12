@@ -6,10 +6,12 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-green)
 ![Pandas](https://img.shields.io/badge/Pandas-Analytics-purple)
-![Streamlit](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?logo=streamlit)
 ![Status](https://img.shields.io/badge/Project-Completed-success)
+![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=for-the-badge&logo=github)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?logo=streamlit)
 
 <br>
 <a href="https://bluestock-analytics-hashmil.streamlit.app/" target="_blank">
