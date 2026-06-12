@@ -21,7 +21,7 @@
 
 - [🎯 Internship Overview](#-internship-overview)
 - [🚀 Week 1: Intensive Learning Phase](#-week-1-intensive-learning-phase)
-- [📊 Week 2: Capstone Project Execution](#-week-2-capstone-project-execution)
+- [📊 Week 2: Capstone Project & Enterprise Automation](#-week-2-capstone-project--enterprise-automation)
 - [🏆 Internship Achievements](#-internship-achievements)
 - [📈 Capstone Project Highlights](#-capstone-project-highlights)
 - [🛠️ Technology Stack](#️-technology-stack)
@@ -54,113 +54,41 @@ Over the course of two intensive weeks, I progressed from foundational Python pr
 ---
 
 ## 🚀 Week 1: Intensive Learning Phase
+*Foundational training in data analytics, database management, and fintech concepts.*
 
-During the first week, I underwent rigorous training in data analytics, database management, and fintech concepts.
-
-### 📅 Day 1 — Python Foundation
-
-- Environment setup and tooling
-- Python fundamentals
-- Object-Oriented Programming (OOP)
-- Financial CSV analysis using Python
-
-### 📅 Day 2 — Data Manipulation
-
-- NumPy arrays and mathematical operations
-- Pandas DataFrames
-- Data Cleaning techniques
-- Exploratory Data Analysis (EDA)
-
-### 📅 Day 3 — SQL & Databases
-
-- SQL fundamentals
-- JOINs, CTEs, Window Functions
-- PostgreSQL installation and configuration
-- pgAdmin database management
-- Capstone Project assigned
-
-### 📅 Day 4 — Data Visualization & APIs
-
-- Matplotlib
-- Seaborn
-- Data storytelling techniques
-- REST API development using Flask
-- PostgreSQL integration with psycopg2
-
-### 📅 Day 5 — Fintech & Machine Learning Basics
-
-- Stock Market Fundamentals
-- OHLC Analysis
-- yFinance Integration
-- Mutual Fund Concepts
-  - NAV
-  - CAGR
-  - SIP
-- Introduction to Machine Learning
-- Capstone Project reached 50% completion
+| Day | Milestone |
+| :--- | :--- |
+| **Day 1** | Python Fundamentals & Environment Setup |
+| **Day 2** | Data Manipulation (NumPy, Pandas, EDA) |
+| **Day 3** | SQL & Database Engineering (Joins, CTEs, PostgreSQL) |
+| **Day 4** | Data Visualization & REST API Integration |
+| **Day 5** | Fintech Fundamentals (NAV, CAGR, SIP) & ML Basics |
 
 ---
 
-## 📊 Week 2: Capstone Project Execution
+## 📊 Week 2: Capstone Project & Enterprise Automation
+*The core phase focused on developing, automating, and deploying the Capstone Project.*
 
-The second week focused entirely on the design, implementation, testing, and final submission of the Mutual Fund Analytics Capstone Project.
+| Day | Milestone |
+| :--- | :--- |
+| **Day 6-7** | Data Ingestion, SQL Star Schema Design & ETL Pipeline |
+| **Day 8-9** | Exploratory Data Analysis (EDA) & Performance Analytics |
+| **Day 10** | Power BI Interactive Dashboard Development |
+| **Day 11** | Advanced Risk Metrics (VaR, CVaR, HHI) |
+| **Day 12** | Robo-Advisor Recommender System Development |
+| **Day 13** | Pipeline Automation & Final Documentation |
+| **Bonus** | **Enterprise Automation (Scheduler, Email Reports, Monte Carlo & Optimization)** |
+| **Bonus** | **Cloud Deployment (Streamlit Web Application)** |
 
-### 📅 Day 6 — Data Ingestion & Validation
+---
 
-- Loaded 10 Mutual Fund datasets
-- Validated AMFI scheme mappings
-- Developed live NAV API integration
-- Initial EDA completed
-
-### 📅 Day 7 — Data Cleaning & Database Design
-
-- Data preprocessing pipeline
-- Missing value treatment
-- SQLite Star Schema design
-- SQLAlchemy ETL pipeline
-
-### 📅 Day 8 — Exploratory Data Analysis
-
-- NAV trend analysis
-- SIP inflow analysis
-- AUM growth tracking
-- Investor demographic analysis
-
-### 📅 Day 9 — Performance Analytics
-
-- CAGR Calculation
-- Sharpe Ratio
-- Sortino Ratio
-- Alpha & Beta
-- Maximum Drawdown
-
-### 📅 Day 10 — Power BI Dashboard Development
-
-- Industry Overview Dashboard
-- Fund Performance Dashboard
-- Investor Analytics Dashboard
-- SIP & Market Trends Dashboard
-
-### 📅 Day 11 — Advanced Analytics
-
-- Value at Risk (VaR)
-- Conditional VaR (CVaR)
-- HHI Concentration Analysis
-- Cohort Analysis
-
-### 📅 Day 12 — Recommender System Development
-
-- Risk-based Fund Recommendation Engine
-- Sharpe Ratio Ranking Logic
-- CLI Application Development
-
-### 📅 Day 13 — Final Submission & Documentation
-
-- Pipeline Automation
-- Report Generation
-- Power BI Dashboard Export
-- Final Presentation
-- Repository Documentation
+## 📈 Capstone Project Highlights
+* **Data Engineering:** ETL pipeline with SQLAlchemy, SQLite Star Schema design.
+* **Financial Analytics:** Alpha/Beta, Sharpe/Sortino Ratios, Maximum Drawdown calculation.
+* **Predictive Modeling:** Monte Carlo Simulation (5-Year NAV Projections).
+* **Portfolio Optimization:** Markowitz Efficient Frontier (Optimal Asset Allocation).
+* **Automation:** Weekly Email Reporting & Automated Watchdog Scheduler.
+* **Business Intelligence:** Interactive Power BI Dashboards & Live Streamlit Web Application.
 
 ---
 
@@ -177,58 +105,18 @@ The second week focused entirely on the design, implementation, testing, and fin
 
 ---
 
-## 📈 Capstone Project Highlights
-
-### Mutual Fund Analytics & Business Intelligence Platform
-
-The Capstone Project was designed as an end-to-end financial analytics solution using real-world Mutual Fund datasets and live NAV data.
-
-### 📊 Data Engineering
-
-- Raw Data Ingestion
-- API Integration
-- Data Validation
-- ETL Processing
-- SQLite Data Warehouse
-
-### 📈 Financial Analytics
-
-- CAGR
-- Sharpe Ratio
-- Sortino Ratio
-- Alpha & Beta
-- Maximum Drawdown
-- Value at Risk (VaR)
-- Conditional VaR (CVaR)
-
-### 📊 Business Intelligence
-
-- Interactive Power BI Dashboard
-- Industry KPI Monitoring
-- Fund Performance Analysis
-- Investor Analytics
-- Market Trend Tracking
-
-### 🤖 Automation & Applications
-
-- Live NAV Fetching
-- Automated Data Pipeline
-- Risk-Based Fund Recommender
-
----
-
 ## 🛠️ Technology Stack
 
 | Category | Technologies |
 |-----------|-------------|
 | Programming | Python |
 | Data Analysis | Pandas, NumPy |
-| Visualization | Matplotlib, Seaborn |
+| Visualization | Matplotlib, Seaborn, Plotly |
 | Dashboarding | Power BI |
 | Database | PostgreSQL, SQLite |
 | ORM | SQLAlchemy |
 | APIs | Flask, REST APIs |
-| Tools | Git, GitHub, Jupyter Notebook |
+| Tools | Git, GitHub, Jupyter Notebook, Streamlit Cloud |
 
 ---
 
@@ -275,39 +163,12 @@ The Capstone Project was designed as an end-to-end financial analytics solution 
 
 ---
 
-## 📸 Learning Journey
-
-### Week 1 Learning Progress
-
-| Day | Progress |
-|------|----------|
-| Day 1 | Python Foundation |
-| Day 2 | NumPy & Pandas |
-| Day 3 | SQL & Databases |
-| Day 4 | Data Visualization & APIs |
-| Day 5 | Fintech & ML Basics |
-
-### Week 2 Capstone Progress
-
-| Day | Milestone |
-|------|----------|
-| Day 6 | Data Ingestion & Validation |
-| Day 7 | Data Cleaning & Database Design |
-| Day 8 | Exploratory Data Analysis |
-| Day 9 | Performance Analytics |
-| Day 10 | Power BI Dashboard Development |
-| Day 11 | Advanced Analytics |
-| Day 12 | Recommender System |
-| Day 13 | Final Submission |
-
----
-
 ## 🚀 How to Run the Project
 
 ### Clone Repository
 
 ```bash
-git clone https://github.com/Hashmil-Muhammed/bluestock-data-analyst-internship.git
+git clone https://github.com/Hashmil-Muhammed/Bluestock-Data-Analyst-Internship.git
 
 cd bluestock-data-analyst-internship
 ```
@@ -338,30 +199,8 @@ python bluestock_mf_capstone/run_pipeline.py
 
 ---
 
-## 📂 Major Deliverables
-
-### 📊 Dashboards
-
-- Power BI Dashboard (.pbix)
-- Dashboard PDF Export
-
-### 📑 Documentation
-
-- Final Project Report
-- Data Dictionary
-- Project Roadmap
-
-### 📈 Analytics Reports
-
-- Fund Scorecard
-- Alpha & Beta Analysis
-- VaR & CVaR Reports
-- HHI Concentration Analysis
-- Cohort Analysis
-
-### 🎤 Presentation
-
-- Bluestock_MF_Presentation.pptx
+### 🌐 Access the Web App
+Visit the [Bluestock Analytics Pro](https://bluestock-analytics-hashmil.streamlit.app/) to explore the interactive dashboard.
 
 ---
 
